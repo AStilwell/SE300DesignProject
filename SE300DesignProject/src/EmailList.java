@@ -42,7 +42,7 @@ public class EmailList {
      * @param input The initial array list that is being modified.
      * @param email The email to be added to the array list.
      */
-    public void addEmail(ArrayList input, String email) {
+    public void addEmail(ArrayList<String> input, String email) {
         if (!input.contains(email)) {
             input.add(email);
         } else {
@@ -54,7 +54,7 @@ public class EmailList {
      * @param input The inital array list that is being modified.
      * @param email The email to be removed from the array list.
      */
-    public void delEmail(ArrayList input, String email) {
+    public void delEmail(ArrayList<String> input, String email) {
         if (input.contains(email)) {
             input.remove(email);
         } else {
@@ -62,7 +62,7 @@ public class EmailList {
         }
     }
 
-    public void addName(ArrayList input, String name) {
+    public void addName(ArrayList<String> input, String name) {
         if (!input.contains(name)) {
             input.add(name);
         } else {
@@ -70,7 +70,7 @@ public class EmailList {
         }
     }
 
-    public void delName(ArrayList input, String name) {
+    public void delName(ArrayList<String> input, String name) {
         if (input.contains(name)) {
             input.remove(name);
         } else {
