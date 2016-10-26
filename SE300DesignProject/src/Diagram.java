@@ -66,8 +66,27 @@ public class Diagram {
         HBox emPersonnel = new HBox();
         HBox eaPersonnel = new HBox();
         HBox engMain = new HBox();
-
+        
         VBox engDiagram = new VBox();
+        
+        VBox moAll = new VBox();
+        VBox moCommand = new VBox();
+        VBox sq1Staff = new VBox();
+        VBox sq2Staff = new VBox();
+        VBox sq1 = new VBox();
+        VBox sq2 = new VBox();
+        VBox f11 = new VBox();
+        VBox f12 = new VBox();
+        VBox f13 = new VBox();
+        VBox f21 = new VBox();
+        VBox f22 = new VBox();
+        VBox f23 = new VBox();
+
+        HBox sq1Personnel = new HBox();
+        HBox sq2Personnel = new HBox();
+        HBox moMain = new HBox();
+
+        VBox moDiagram = new VBox();
 
 
         File file = new File(filePath);
@@ -134,7 +153,34 @@ public class Diagram {
                     //TODO
                     break;
                 case "MO":
-                    //TODO
+                    switch (workCenter.getContents()) {
+                        case "STAFF":
+                            moCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "SQUAD 1":
+                            sq1Staff.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "1-1":
+                            f11.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "1-2":
+                            f12.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "1-3":
+                            f13.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "SQUAD 2":
+                            sq2Staff.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "2-1":
+                            f21.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "2-2":
+                            f22.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
+                        case "2-3":
+                            f23.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+                            break;
                     break;
             }
         }
@@ -162,6 +208,24 @@ public class Diagram {
         emPersonnel.getChildren().addAll(em01, em02);
         emPersonnel.setSpacing(15);
         eaDiv.getChildren().addAll(eaStaff, eaPersonnel);
+        eaDiv.setSpacing(15);
+        emDiv.getChildren().addAll(emStaff, emPersonnel);
+        emDiv.setSpacing(15);
+        engMain.getChildren().addAll(eaDiv, emDiv);
+        engMain.setSpacing(15);
+        engAll.getChildren().addAll(engCommand, engMain);
+        engAll.setSpacing(15);
+
+        engMain.setAlignment(Pos.CENTER);
+
+        engDiagram.getChildren().addAll(engAll);
+        
+        
+        sq1Personnel.getChildren().addAll(f11, f12, f13);
+        sq1Personnel.setSpacing(15);
+        sq2Personnel.getChildren().addAll(f21,f22,f23);
+        sq2Personnel.setSpacing(15);
+        eaDiv.getChildren().addAll(eaStaff, eaPersonnel); //TODO
         eaDiv.setSpacing(15);
         emDiv.getChildren().addAll(emStaff, emPersonnel);
         emDiv.setSpacing(15);
