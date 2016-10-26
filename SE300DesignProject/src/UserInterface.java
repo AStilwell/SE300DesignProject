@@ -14,21 +14,25 @@ import java.util.ArrayList;
 /**
  * Created by stilw on 17-Oct-16.
  */
-public class UserInterface extends Application {
+public class UserInterface extends Application 
+{
 
     /**
      * @param primaryStage Stage default for creation of GUI.
      */
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) 
+    {
         //Create new email list
         EmailList email = new EmailList();
 
         //Create new diagram handling class
         Diagram diagram = new Diagram();
-        try {
+        try 
+        {
             diagram.read();
-        } catch (IOException | BiffException ex) {
+        } catch (IOException | BiffException ex) 
+        {
             ex.printStackTrace();
         }
 
@@ -48,10 +52,12 @@ public class UserInterface extends Application {
         Button massRecall = new Button("RECALL");
 
         //Method to select all email addresses and add them to the email list
-        massRecall.setOnMouseClicked(fn -> {
+        massRecall.setOnMouseClicked(fn -> 
+        {
             try {
                 email.getAllEmails();
-            } catch (BiffException | IOException e) {
+            } catch (BiffException | IOException e) 
+            {
                 System.out.println("There was an error getting the correct email addresses.");
             }
             diagram.selectAll();
@@ -68,7 +74,8 @@ public class UserInterface extends Application {
         });
 
         Button clear = new Button("CLEAR");
-        clear.setOnAction(fn -> {
+        clear.setOnAction(fn -> 
+        {
             diagram.clearSelection();
             email.getEmailList().clear();
             emails.setText(null);
