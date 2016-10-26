@@ -6,11 +6,12 @@ import jxl.read.biff.BiffException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-/**
+// Logan was here
+/**So was Peter
  * Created by Andrew Stilwell on 24-Oct-16.
  */
-public class EmailList {
+public class EmailList 
+{
     private static final ArrayList<String> emailList = new ArrayList<>();
     private static final ArrayList<String> nameList = new ArrayList<>();
 
@@ -18,11 +19,13 @@ public class EmailList {
      *
      * @return Outputs the email list contained in this class
      */
-    public ArrayList<String> getEmailList() {
+    public ArrayList<String> getEmailList() 
+    {
         return emailList;
     }
 
-    public ArrayList<String> getNameList(){
+    public ArrayList<String> getNameList()
+    {
         return nameList;
     }
 
@@ -30,11 +33,13 @@ public class EmailList {
      *
      * @return Outputs the email list in a string format
      */
-    public String outputEmailList() {
+    public String outputEmailList() 
+    {
         return emailList.toString();
     }
 
-    public String outputNameList(){
+    public String outputNameList()
+    {
         return nameList.toString();
     }
 
@@ -42,10 +47,13 @@ public class EmailList {
      * @param input The initial array list that is being modified.
      * @param email The email to be added to the array list.
      */
-    public void addEmail(ArrayList<String> input, String email) {
-        if (!input.contains(email)) {
+    public void addEmail(ArrayList input, String email) 
+    {
+        if (!input.contains(email)) 
+        {
             input.add(email);
-        } else {
+        } else 
+        {
             System.out.println("Something went wrong...");
         }
     }
@@ -54,26 +62,35 @@ public class EmailList {
      * @param input The inital array list that is being modified.
      * @param email The email to be removed from the array list.
      */
-    public void delEmail(ArrayList<String> input, String email) {
-        if (input.contains(email)) {
+    public void delEmail(ArrayList input, String email) 
+    {
+        if (input.contains(email)) 
+        {
             input.remove(email);
-        } else {
+        } else 
+        {
             System.out.println("Something went wrong...");
         }
     }
 
-    public void addName(ArrayList<String> input, String name) {
-        if (!input.contains(name)) {
+    public void addName(ArrayList input, String name) 
+    {
+        if (!input.contains(name)) 
+        {
             input.add(name);
-        } else {
+        } else 
+        {
             System.out.println("Something went wrong...");
         }
     }
 
-    public void delName(ArrayList<String> input, String name) {
-        if (input.contains(name)) {
+    public void delName(ArrayList input, String name) 
+    {
+        if (input.contains(name)) 
+        {
             input.remove(name);
-        } else {
+        } else 
+        {
             System.out.println("Something went wrong...");
         }
     }
@@ -82,12 +99,14 @@ public class EmailList {
      * @throws IOException
      * @throws BiffException
      */
-    public void getAllEmails() throws IOException, BiffException {
+    public void getAllEmails() throws IOException, BiffException 
+    {
         File file = new File("C:\\Users\\Andrew Stilwell\\OneDrive\\ProgrammingStuff\\Java\\SE300 Design Project\\src\\GUI\\Test.xls" );
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
 
-        for (int i = 0; i < sheet.getRows(); i++) {
+        for (int i = 0; i < sheet.getRows(); i++) 
+        {
             Cell cell = sheet.getCell(4, i);
 
             emailList.add(cell.getContents());
