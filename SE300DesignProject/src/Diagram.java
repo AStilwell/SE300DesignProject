@@ -181,6 +181,7 @@ public class Diagram {
                         case "2-3":
                             f23.getChildren().add(createPane(sheet.getCell(2, j).getContents(), sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
                             break;
+                    }
                     break;
             }
         }
