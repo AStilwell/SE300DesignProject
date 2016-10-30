@@ -32,7 +32,9 @@ public class MailSender
 	 */
 	public static boolean sendEmail(String sender, String senderPass, String to[], String message, String subject)
 	{
-		String host = "smtp.gmail.com";
+		String host = "smtp.gmail.com"; // This may need to change depending 
+										// on where we send the email from, 
+										// I'm not 100% sure how significant it is.
 
 		Properties properties = System.getProperties();
 		
@@ -61,19 +63,19 @@ public class MailSender
 				mimeMessage.addRecipient(RecipientType.TO, toAddress[i]);
 			}
 			
-			mimeMessage.setSubject(subject);
-			mimeMessage.setText(message);
+			mimeMessage.setSubject(subject); // Subject line
+			mimeMessage.setText(message); // Content of message
 			Transport transport = session.getTransport("smpt");
-			transport.connect(host, sender, senderPass);
+			transport.connect(host, sender, senderPass); // Sender authentication
 			transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-			transport.close();
-			return true;
+			transport.close(); // Terminates transport process
+			return true; // Method should end here if everything works.
 		}
 		catch(MessagingException me)
 		{
-			me.printStackTrace();
+			me.printStackTrace(); // This should never happen.
 		}
 		
-		return false;
+		return false; // Returns false if for any reason the code above doesn't run.
 	}
 }
