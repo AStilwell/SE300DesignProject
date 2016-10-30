@@ -18,7 +18,7 @@ public class MailSender
 	 * instead use a loop to call this function for each recipient (FOR NOW, WILL SEE IF WORKAROUND THAT IS SIMPLER)
 	 * @param message - string - content of email
 	 * @param subject - string - subject line of email
-	 * @return
+	 * @return will give true on success, false on failure
 	 */
 	public static boolean sendEmail(String sender, String senderPass, String to[], String message, String subject)
 	{
