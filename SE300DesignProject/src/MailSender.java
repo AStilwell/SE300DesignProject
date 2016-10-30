@@ -6,11 +6,19 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * @author Peter Devyatkin
+ * 
+ * Embry-Riddle Aeronautical University
+ * 
+ * SE-300 Project
+ * 
+ * contact info: peterdevyatkin@gmail.com
  *
  */
 public class MailSender
 {
 	/**
+	 * This class has one method that allows for emails to be sent from java.
+	 * 
 	 * @param sender - string - email address of sender
 	 * @param senderPass - string - password of sender
 	 * @param to - array of strings - address of recipient(s), 
@@ -23,14 +31,14 @@ public class MailSender
 	public static boolean sendEmail(String sender, String senderPass, String to[], String message, String subject)
 	{
 		String host = "smtp.gmail.com";
-		
+
 		Properties properties = System.getProperties();
 		
 		properties.put("mail.smtpy.starttls.enable", "true");
 		properties.put("mail.smtp.host", host);
 		properties.put("mail.smtp.user", sender);
 		properties.put("mail.smtp.password", senderPass);
-		properties.put("mail.smtp.port", 587);
+		properties.put("mail.smtp.port", 587); // I DON'T KNOW IF THIS PORT IS IDEAL, SUBJECT TO CHANGE!!!
 		properties.put("mail.smtp.auth", true);
 		
 		Session session = Session.getDefaultInstance(properties, null);
