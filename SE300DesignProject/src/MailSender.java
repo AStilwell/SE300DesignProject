@@ -11,6 +11,8 @@ import javax.mail.internet.MimeMessage;
  * 
  * SE-300 Project
  * 
+ * this is for testing
+ * 
  * contact info: peterdevyatkin@gmail.com
  *
  */
