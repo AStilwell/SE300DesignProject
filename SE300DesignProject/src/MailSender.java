@@ -42,7 +42,7 @@ public class MailSender
 		properties.put("mail.smtp.host", host);
 		properties.put("mail.smtp.user", sender);
 		properties.put("mail.smtp.password", senderPass);
-		properties.put("mail.smtp.port", 587); // I DON'T KNOW IF THIS PORT IS IDEAL, SUBJECT TO CHANGE!!!
+		properties.put("mail.smtp.port", 587); // I DON'T KNOW IF THIS PORT IS IDEAL, SUBJECT TO CHANGE!!!!
 		properties.put("mail.smtp.auth", true);
 		
 		Session session = Session.getDefaultInstance(properties, null);
