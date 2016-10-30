@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import jxl.read.biff.BiffException;
@@ -61,20 +62,20 @@ public class UserInterface extends Application
                 System.out.println("There was an error getting the correct email addresses.");
             }
             diagram.selectAll();
-            emails.setText(email.outputEmailList());
+            emails.setText(email.outputEmailList().toString());
             message.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
         });
 
         //Button declarations and functions
         Button select = new Button("SELECT");
         select.setOnMouseClicked(fn -> {
-            emails.setText(email.outputEmailList());
+            emails.setText(email.outputEmailList().toString());
             System.out.println(email.getEmailList());
             System.out.println(email.getNameList());
         });
 
         Button clear = new Button("CLEAR");
-        clear.setOnAction(fn -> 
+        clear.setOnMouseClicked(fn -> 
         {
             diagram.clearSelection();
             email.getEmailList().clear();
@@ -83,15 +84,24 @@ public class UserInterface extends Application
         });
         
         Button send = new Button("SEND");
-        send.setOnAction(fn -> {
+        send.setOnMouseClicked(fn -> {
         	TextField password = new TextField();
+        	Button ok = new Button("OK");
+        	ok.setOnMouseClicked(sending -> {
+        		MailSender.sendEmail("stilwell.andrewk@gmail.com", password.getCharacters().toString(), email.outputEmailList(), "Test", "This is a test");
+        	});
         	
-        	Pane passWindow = new Pane();
+        	Button cancel = new Button("Cancel");
+        	
+        	GridPane passWindow = new GridPane();
+        	passWindow.add(password, 0,0,2,1);
+        	passWindow.add(ok, 0, 1);
+        	passWindow.add(cancel, 1, 1);
         	
         	Scene passPrompt = new Scene(passWindow);
         	
-        	Stage root2 = new Stage(passPrompt);
-        	
+        	Stage root2 = new Stage();
+        	root2.setScene(passPrompt);
         	root2.show();
         });
 
@@ -101,6 +111,7 @@ public class UserInterface extends Application
         controls.add(massRecall, 0, 2);
         controls.add(select, 1, 2);
         controls.add(clear, 0, 3);
+        controls.add(send, 1, 3);
         controls.setMinWidth(250);
         controls.setHgap(20);
         controls.setVgap(20);
@@ -144,9 +155,5 @@ public class UserInterface extends Application
         primaryStage.setTitle("User Interface");
         primaryStage.setMaximized(true);
         primaryStage.show();
-    }
-    
-    public static void main(String[] args){
-    	Application.launch(args);
     }
 }

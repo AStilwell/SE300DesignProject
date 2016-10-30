@@ -33,9 +33,9 @@ public class EmailList
      *
      * @return Outputs the email list in a string format
      */
-    public String outputEmailList() 
+    public String[] outputEmailList() 
     {
-        return emailList.toString();
+        return (String[]) emailList.toArray();//TODO
     }
 
     public String outputNameList()

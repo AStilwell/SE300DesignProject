@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class Diagram
 {
 
-	private static final String filePath = ".\\src\\GUI\\Test.xls";
+	private static final String filePath = ".\\src\\Test Spreadsheet.xls";
 	ArrayList<VBox> storage = new ArrayList<>();
 	ArrayList<VBox> nodeList = new ArrayList<>();
 
@@ -249,7 +249,7 @@ public class Diagram
 
 		engDiagram.getChildren().addAll(engAll);
 
-		sq1Personnel.getChildren().addAll(f11, f12, f13);
+		/**sq1Personnel.getChildren().addAll(f11, f12, f13);
 		sq1Personnel.setSpacing(15);
 		sq2Personnel.getChildren().addAll(f21, f22, f23);
 		sq2Personnel.setSpacing(15);
@@ -265,7 +265,8 @@ public class Diagram
 		engMain.setAlignment(Pos.CENTER);
 
 		engDiagram.getChildren().addAll(engAll);
-
+		**/
+		
 		storage.add(0, command);
 		storage.add(1, wepsDiagram);
 		storage.add(2, engDiagram);
