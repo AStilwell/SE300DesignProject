@@ -81,6 +81,19 @@ public class UserInterface extends Application
             emails.setText(null);
             message.setText(null);
         });
+        
+        Button send = new Button("SEND");
+        send.setOnAction(fn -> {
+        	TextField password = new TextField();
+        	
+        	Pane passWindow = new Pane();
+        	
+        	Scene passPrompt = new Scene(passWindow);
+        	
+        	Stage root2 = new Stage(passPrompt);
+        	
+        	root2.show();
+        });
 
         //Add buttons to the control sub-pane
         controls.add(emails, 0, 0, 2, 1);
