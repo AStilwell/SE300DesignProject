@@ -35,7 +35,9 @@ public class EmailList
      */
     public String[] outputEmailList() 
     {
-        return (String[]) emailList.toArray();//TODO
+        String[] addresses = emailList.toArray(new String[0]);
+        
+        return addresses;
     }
 
     public String outputNameList()
