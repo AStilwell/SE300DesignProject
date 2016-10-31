@@ -85,10 +85,10 @@ public class UserInterface extends Application
         
         Button send = new Button("SEND");
         send.setOnMouseClicked(fn -> {
-        	TextField password = new TextField();
+        	PasswordField password = new PasswordField();
         	Button ok = new Button("OK");
         	ok.setOnMouseClicked(sending -> {
-        		MailSender.sendEmail("stilwell.andrewk@gmail.com", password.getCharacters().toString(), email.outputEmailList(), "Test", "This is a test");
+        		sendEmail("stilwell.andrewk@gmail.com", password.getCharacters().toString(), email.outputEmailList(), "Test", "This is a test");
         	});
         	
         	Button cancel = new Button("Cancel");
