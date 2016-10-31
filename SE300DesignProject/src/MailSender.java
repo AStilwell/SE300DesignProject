@@ -27,6 +27,8 @@ public class MailSender
 	 * @param message - string - content of email
 	 * @param subject - string - subject line of email
 	 * @return will give true on success, false on failure
+	 * 
+	 * TODO find out why the method is slow
 	 */
 	public static boolean sendEmail(String sender, String senderPass, String to[], String message, String subject)
 	{
