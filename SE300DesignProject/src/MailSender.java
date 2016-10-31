@@ -65,7 +65,7 @@ public class MailSender
 			
 			mimeMessage.setSubject(subject); // Subject line
 			mimeMessage.setText(message); // Content of message
-			Transport transport = session.getTransport("smpt");
+			Transport transport = session.getTransport("smtp");
 			transport.connect(host, sender, senderPass); // Sender authentication
 			transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
 			transport.close(); // Terminates transport process
