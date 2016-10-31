@@ -83,14 +83,17 @@ public class UserInterface extends Application
         
         Button send = new Button("SEND");
         send.setOnMouseClicked(fn -> {
+        	Stage root2 = new Stage();
+        	
         	PasswordField password = new PasswordField();
         	Button ok = new Button("OK");
         	ok.setOnMouseClicked(sending -> {
         		//change this email to yours for testing
-        		MailSender.sendEmail("stilwell.andrewk@gmail.com", password.getCharacters().toString(), email.outputEmailList(), "Test", "This is a test");
+        		MailSender.sendEmail("stilwell.andrewk@gmail.com", password.getCharacters().toString(), email.outputEmailList(), message.getText(), "This is a test");
         	});
         	
         	Button cancel = new Button("Cancel");
+        	cancel.setOnMouseClicked(f -> root2.close());
         	
         	GridPane passWindow = new GridPane();
         	passWindow.add(password, 0,0,2,1);
@@ -99,7 +102,6 @@ public class UserInterface extends Application
         	
         	Scene passPrompt = new Scene(passWindow);
         	
-        	Stage root2 = new Stage();
         	root2.setScene(passPrompt);
         	root2.show();
         });
