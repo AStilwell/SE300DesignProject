@@ -11,6 +11,7 @@ import jxl.read.biff.BiffException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by stilw on 17-Oct-16. messed with by Peter
@@ -69,9 +70,7 @@ public class UserInterface extends Application
         //Button declarations and functions
         Button select = new Button("SELECT");
         select.setOnMouseClicked(fn -> {
-            emails.setText(email.outputEmailList().toString());
-            System.out.println(email.getEmailList());
-            System.out.println(email.getNameList());
+            emails.setText(Arrays.toString(email.outputEmailList()));
         });
 
         Button clear = new Button("CLEAR");

@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class EmailList 
 {
-    private static final ArrayList<String> emailList = new ArrayList<>();
-    private static final ArrayList<String> nameList = new ArrayList<>();
+    private static ArrayList<String> emailList = new ArrayList<>();
+    private static ArrayList<String> nameList = new ArrayList<>();
 
     /**
      *
@@ -37,16 +37,12 @@ public class EmailList
     {
         String[] addresses = emailList.toArray(new String[0]);
         
-        System.out.print(addresses.toString());
-        
         return addresses;
     }
 
     public String[] outputNameList()
     {
     	String[] names = nameList.toArray(new String[0]);
-    	
-    	System.out.print(names.toString());
     	
         return names;
     }
@@ -57,13 +53,7 @@ public class EmailList
      */
     public void addEmail(ArrayList<String> input, String email) 
     {
-        if (!input.contains(email)) 
-        {
-            input.add(email);
-        } else 
-        {
-            System.out.println("Something went wrong...");
-        }
+        input.add(email);
     }
 
     /**
@@ -72,35 +62,17 @@ public class EmailList
      */
     public void delEmail(ArrayList<String> input, String email) 
     {
-        if (input.contains(email)) 
-        {
-            input.remove(email);
-        } else 
-        {
-            System.out.println("Something went wrong...");
-        }
+        input.remove(email);
     }
 
     public void addName(ArrayList<String> input, String name) 
     {
-        if (!input.contains(name)) 
-        {
-            input.add(name);
-        } else 
-        {
-            System.out.println("Something went wrong...");
-        }
+        input.add(name);
     }
 
     public void delName(ArrayList<String> input, String name) 
     {
-        if (input.contains(name)) 
-        {
-            input.remove(name);
-        } else 
-        {
-            System.out.println("Something went wrong...");
-        }
+        input.remove(name);
     }
 
     /**
