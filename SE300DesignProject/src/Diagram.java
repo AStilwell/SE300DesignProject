@@ -316,11 +316,15 @@ public class Diagram
 					node.setStyle("-fx-background-color: yellow; -fx-border-color: black");
 					temp.addEmail(temp.getEmailList(), e);
 					temp.addName(temp.getNameList(), n);
+					System.out.print(temp.outputNameList());
+					System.out.print(temp.outputEmailList());
 				} else if (button == MouseButton.SECONDARY)
 				{
 					node.setStyle("-fx-background-color: transparent; -fx-border-color: black");
 					temp.delEmail(temp.getEmailList(), e);
 					temp.delName(temp.getEmailList(), n);
+					System.out.print(temp.outputNameList());
+					System.out.print(temp.outputEmailList());
 				}
 			}
 		});

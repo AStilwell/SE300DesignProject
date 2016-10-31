@@ -37,12 +37,18 @@ public class EmailList
     {
         String[] addresses = emailList.toArray(new String[0]);
         
+        System.out.print(addresses.toString());
+        
         return addresses;
     }
 
-    public String outputNameList()
+    public String[] outputNameList()
     {
-        return nameList.toString();
+    	String[] names = nameList.toArray(new String[0]);
+    	
+    	System.out.print(names.toString());
+    	
+        return names;
     }
 
     /**
