@@ -38,7 +38,7 @@ public class MailSender
 
 		Properties properties = System.getProperties();
 		
-		properties.put("mail.smtpy.starttls.enable", "true");
+		properties.put("mail.smtp.starttls.enable", "true");
 		properties.put("mail.smtp.host", host);
 		properties.put("mail.smtp.user", sender);
 		properties.put("mail.smtp.password", senderPass);
@@ -69,6 +69,7 @@ public class MailSender
 			transport.connect(host, sender, senderPass); // Sender authentication
 			transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
 			transport.close(); // Terminates transport process
+			System.out.println("Send Successful");
 			return true; // Method should end here if everything works.
 		}
 		catch(MessagingException me)
