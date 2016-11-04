@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Diagram
 {
 
-	private static final String filePath = ".\\src\\Test Spreadsheet.xls";
+	private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //TODO
 	ArrayList<VBox> storage = new ArrayList<>();
 	ArrayList<VBox> nodeList = new ArrayList<>();
 
