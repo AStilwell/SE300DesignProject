@@ -203,6 +203,7 @@ public class UserInterface extends Application
         		}
         		if (!sendSuccess){
         			passwordWindow.close();
+        			uiOverhaul.close();
         		}
         	});
         	
