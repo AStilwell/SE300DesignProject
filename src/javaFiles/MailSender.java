@@ -31,7 +31,7 @@ public class MailSender
 	 * 
 	 * TODO find out why the method is slow
 	 */
-	public static boolean sendEmail(String sender, String senderPass, String to[], String message, String subject)
+	public static void sendEmail(String sender, String senderPass, String to[], String message, String subject) throws MessagingException
 	{
 		String host = "smtp.gmail.com"; // This may need to change depending 
 										// on where we send the email from, 
@@ -49,8 +49,8 @@ public class MailSender
 		Session session = Session.getDefaultInstance(properties, null);
 		MimeMessage mimeMessage = new MimeMessage(session);
 		
-		try
-		{
+		//try
+		//{
 			mimeMessage.setFrom(new InternetAddress(sender));
 			
 			InternetAddress[] toAddress = new InternetAddress[to.length];
@@ -71,13 +71,13 @@ public class MailSender
 			transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
 			transport.close(); // Terminates transport process
 			System.out.println("Send Successful");
-			return true; // Method should end here if everything works.
-		}
-		catch(MessagingException me)
-		{
-			me.printStackTrace(); // This should never happen.
-		}
+			//return true; // Method should end here if everything works.
+		//}
+		//catch(MessagingException me)
+		//{
+			//me.printStackTrace(); // This should never happen.
+		//}
 		
-		return false; // Returns false if for any reason the code above doesn't run.
+		//return false; // Returns false if for any reason the code above doesn't run.
 	}
 }

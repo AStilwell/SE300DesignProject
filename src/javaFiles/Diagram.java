@@ -32,7 +32,7 @@ public class Diagram
 	 * @throws BiffException
 	 * @throws IOException
 	 */
-	public ArrayList<VBox> read() throws BiffException, IOException
+	public void read() throws BiffException, IOException
 	{
 
 		VBox command = new VBox();
@@ -268,12 +268,13 @@ public class Diagram
 
 		engDiagram.getChildren().addAll(engAll);
 		**/
+		command.setAlignment(Pos.TOP_CENTER);
+		wepsDiagram.setAlignment(Pos.TOP_CENTER);
+		engDiagram.setAlignment(Pos.TOP_CENTER);
 		
 		storage.add(0, command);
 		storage.add(1, wepsDiagram);
 		storage.add(2, engDiagram);
-
-		return storage;
 	}
 
 	/**
@@ -302,8 +303,6 @@ public class Diagram
 		node.getChildren().addAll(title, name, email);
 
 		nodeList.add(node);
-
-		System.out.println("Node Created: " + p);
 
 		node.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
