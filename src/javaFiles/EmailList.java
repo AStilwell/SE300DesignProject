@@ -101,4 +101,8 @@ public class EmailList
     		return false;
     	}
     }
+    
+    public void clearList(){
+    	emailList.clear();
+    }
 }

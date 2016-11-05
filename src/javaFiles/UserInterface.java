@@ -52,6 +52,8 @@ public class UserInterface extends Application
         MenuBar menuBar = new MenuBar();
         Menu file = new Menu("File");
         MenuItem exit = new MenuItem("Exit");
+        MenuItem clear = new MenuItem("Clear All");
+        Menu reset = new Menu("Reset...");
         Menu help = new Menu("Help");
         TabPane tabs = new TabPane();
         Tab engineeringT = new Tab("Engineering", chart.get(2));
@@ -75,9 +77,18 @@ public class UserInterface extends Application
         Stage uiOverhaul = new Stage();
         
         exit.setOnAction(e -> Platform.exit());
+        
+        clear.setOnAction(v -> {
+        	email.clearList();
+        	diagram.clearSelection();
+        	addresses.setText(null);
+        	subject.setText(null);
+        	body.setText(null);
+        });
+        
         file.getItems().addAll(exit);
-
-        menuBar.getMenus().addAll(file, help);
+        reset.getItems().add(clear);
+        menuBar.getMenus().addAll(file, reset, help);
         
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         tabs.getTabs().addAll(weaponsT, engineeringT, navigationT, mopltT);
@@ -214,6 +225,7 @@ public class UserInterface extends Application
         });
              
         cancel.setPrefSize(100, 20);
+        cancel.setOnAction(y -> Platform.exit());
                
         mainCtl.setSpacing(5);
         mainCtl.setAlignment(Pos.TOP_CENTER);
