@@ -82,7 +82,7 @@ public class EmailList
      */
     public void getAllEmails() throws IOException, BiffException 
     {
-        File file = new File("C:\\Users\\Andrew Stilwell\\OneDrive\\ProgrammingStuff\\Java\\SE300 Design Project\\src\\GUI\\Test.xls" );
+        File file = new File(".\\src\\refDocs\\Test Spreadsheet.xls" ); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
 
@@ -92,5 +92,13 @@ public class EmailList
 
             emailList.add(cell.getContents());
         }
+    }
+    
+    public Boolean isEmpty() {
+    	if (emailList.isEmpty()){
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
 }
