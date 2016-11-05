@@ -201,7 +201,7 @@ public class UserInterface extends Application
                 	invPass.setTitle("WARNING");
                 	invPass.show();
         		}
-        		if (sendSuccess){
+        		if (!sendSuccess){
         			passwordWindow.close();
         		}
         	});
