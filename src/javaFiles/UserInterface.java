@@ -176,8 +176,9 @@ public class UserInterface extends Application
         	ok.setOnMouseClicked(sending -> {
         		Boolean sendSuccess = false;
         		try {
-        			MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
-            		
+        			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
+        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+        			//}
         		} catch(MessagingException me) {
         			Stage invPass = new Stage();
                 	
