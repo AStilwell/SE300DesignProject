@@ -23,31 +23,26 @@ import javax.mail.MessagingException;
 /**
  * Created by stilw on 17-Oct-16. messed with by Peter
  */
-public class UserInterface extends Application 
-{
-
+public class UserInterface extends Application {
     /**
      * @param primaryStage Stage default for creation of GUI.
      */
     @Override
-    public void start(Stage primaryStage) 
-    {
+    public void start(Stage primaryStage) {
         //TODO New UI Layout
         //Create new email list
         EmailList email = new EmailList();
 
         //Create new diagram handling class
         Diagram diagram = new Diagram();
-        try 
-        {
+        try {
             diagram.read();
-        } catch (IOException | BiffException ex) 
-        {
+        } catch (IOException | BiffException ex) {
             ex.printStackTrace();
         }
 
         ArrayList<VBox> chart = diagram.getDiagram();
-        
+
 
         MenuBar menuBar = new MenuBar();
         Menu file = new Menu("File");
@@ -75,87 +70,87 @@ public class UserInterface extends Application
         BorderPane staging = new BorderPane();
         Scene rootOverhaul = new Scene(staging);
         Stage uiOverhaul = new Stage();
-        
+
         exit.setOnAction(e -> Platform.exit());
-        
+
         clear.setOnAction(v -> {
-        	email.clearList();
-        	diagram.clearSelection();
-        	addresses.setText(null);
-        	subject.setText(null);
-        	body.setText(null);
+            email.clearList();
+            diagram.clearSelection();
+            addresses.setText(null);
+            subject.setText(null);
+            body.setText(null);
         });
-        
+
         file.getItems().addAll(exit);
         reset.getItems().add(clear);
         menuBar.getMenus().addAll(file, reset, help);
-        
+
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         tabs.getTabs().addAll(weaponsT, engineeringT, navigationT, mopltT);
-        
+
         tabs.setOnMouseClicked(g -> {
-        	addresses.setText(Arrays.toString(email.outputEmailList()));
-        	if(email.isEmpty()){
-        		addresses.setText(null);
-        	}
+            addresses.setText(Arrays.toString(email.outputEmailList()));
+            if (email.isEmpty()) {
+                addresses.setText(null);
+            }
         });
-        
+
 
         subject.setPromptText("Subject");
-        
+
 
         body.setPromptText("Message Contents");
-               
+
         addresses.setPromptText("No Emails Selected");
         addresses.setPrefHeight(75);
         addresses.setWrapText(true);
-                
+
         inputArea.getChildren().addAll(addresses, subject, body);
         inputArea.setSpacing(5);
-        
+
         recall.setPrefSize(205, 40);
-        recall.setOnMouseClicked(fn -> 
-        {	
-        	Stage recallCheck = new Stage();
-        	
-        	Text statement = new Text("This will send a message to all users!");
-        	
-        	Button confirm = new Button("Confirm");
-        	confirm.setOnMouseClicked(x -> {
-        		try {
-                email.getAllEmails();
-                diagram.selectAll();
-        		addresses.setText(Arrays.toString(email.outputEmailList()));
-        		body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
-        		} catch (BiffException | IOException e) 
-        		{
-                System.out.println("There was an error getting the correct email addresses.");
-        		}
-        		recallCheck.close();
-        	});
-        	
-        	Button accident = new Button("Cancel");
-        	accident.setOnMouseClicked(e -> recallCheck.close());
-        	
-        	HBox options = new HBox(confirm, accident);
-        	options.setSpacing(20);
-        	options.setAlignment(Pos.CENTER);
-        	
-        	VBox warningWindow = new VBox(statement, options);
-        	warningWindow.setSpacing(15);
-        	warningWindow.setAlignment(Pos.CENTER);
-        	
-        	Scene recallVerify = new Scene(warningWindow);
-        	
-        	recallCheck.setScene(recallVerify);
-        	recallCheck.setMinHeight(200);
-        	recallCheck.setMinWidth(400);
-        	recallCheck.setTitle("WARNING");
-        	recallCheck.show();
+        recall.setOnMouseClicked(fn ->
+        {
+            Stage recallCheck = new Stage();
+
+            Text statement = new Text("This will send a message to all users!");
+
+            Button confirm = new Button("Confirm");
+            confirm.setOnMouseClicked(x -> {
+                try {
+                    email.getAllEmails();
+                    diagram.selectAll();
+                    addresses.setText(Arrays.toString(email.outputEmailList()));
+                    body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
+                } catch (BiffException | IOException e) {
+                    System.out.println("There was an error getting the correct email addresses.");
+                }
+                recallCheck.close();
+            });
+
+            Button accident = new Button("Cancel");
+            accident.setOnMouseClicked(e -> recallCheck.close());
+
+            HBox options = new HBox(confirm, accident);
+            options.setSpacing(20);
+            options.setAlignment(Pos.CENTER);
+
+            VBox warningWindow = new VBox(statement, options);
+            warningWindow.setSpacing(15);
+            warningWindow.setAlignment(Pos.CENTER);
+
+            Scene recallVerify = new Scene(warningWindow);
+
+            recallCheck.setScene(recallVerify);
+            recallCheck.setMinHeight(200);
+            recallCheck.setMinWidth(400);
+            recallCheck.setTitle("WARNING");
+            recallCheck.show();
         });
-               
+
         send.setPrefSize(100, 20);
         send.setOnMouseClicked(fn -> {
+<<<<<<< HEAD
         	Stage passwordWindow = new Stage();
         	Text emailLabel = new Text("EMAIL:");
         	TextField usrEmail = new TextField();
@@ -225,34 +220,104 @@ public class UserInterface extends Application
         	passwordWindow.setScene(passPrompt);
         	passwordWindow.setTitle("AUTHENTICATION CHECK");
         	passwordWindow.show();
+=======
+            Stage passwordWindow = new Stage();
+            Text emailLabel = new Text("EMAIL:");
+            TextField usrEmail = new TextField();
+            usrEmail.setPromptText("EMAIL ADDRESS");
+            Text passLabel = new Text("PASSWORD:");
+            PasswordField password = new PasswordField();
+            password.setPromptText("PASSWORD");
+
+            GridPane entryWin = new GridPane();
+            entryWin.add(emailLabel, 0, 0);
+            entryWin.add(passLabel, 0, 1);
+            entryWin.add(usrEmail, 1, 0);
+            entryWin.add(password, 1, 1);
+            entryWin.setHgap(5);
+            entryWin.setAlignment(Pos.CENTER);
+
+            Button ok = new Button("OK");
+            ok.setOnMouseClicked(sending -> {
+                Boolean sendSuccess = false;
+                try {
+                    //for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
+                    MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+                    //}
+                } catch (MessagingException me) {
+                    Stage invPass = new Stage();
+
+                    Text error = new Text("Invalid User Name/Password");
+
+                    Button ack = new Button("OK");
+                    ack.setAlignment(Pos.CENTER);
+                    ack.setOnMouseClicked(x -> {
+                        invPass.close();
+                    });
+
+                    VBox warningWindow = new VBox(error, ack);
+                    warningWindow.setSpacing(15);
+                    warningWindow.setAlignment(Pos.CENTER);
+
+                    Scene recallVerify = new Scene(warningWindow);
+
+                    invPass.setScene(recallVerify);
+                    invPass.setMinHeight(100);
+                    invPass.setMinWidth(200);
+                    invPass.setTitle("WARNING");
+                    invPass.show();
+                }
+                if (!sendSuccess) {
+                    passwordWindow.close();
+                    uiOverhaul.close();
+                }
+            });
+
+            Button backout = new Button("Cancel");
+            backout.setOnMouseClicked(func -> passwordWindow.close());
+
+            HBox bnInput = new HBox(ok, backout);
+            bnInput.setAlignment(Pos.CENTER);
+
+            VBox passWindow = new VBox(entryWin, bnInput);
+            passWindow.setAlignment(Pos.CENTER);
+            passWindow.setPrefSize(400, 100);
+            passWindow.setSpacing(5);
+
+            Scene passPrompt = new Scene(passWindow);
+
+            passwordWindow.setScene(passPrompt);
+            passwordWindow.setTitle("AUTHENTICATION CHECK");
+            passwordWindow.show();
+>>>>>>> branch 'master' of https://github.com/AStilwell/SE300DesignProject
         });
-             
+
         cancel.setPrefSize(100, 20);
         cancel.setOnAction(y -> Platform.exit());
-               
+
         mainCtl.setSpacing(5);
         mainCtl.setAlignment(Pos.TOP_CENTER);
-               
+
         allBn.setSpacing(25);
         allBn.setAlignment(Pos.TOP_CENTER);
-               
+
         spacer.setPrefSize(10, tabs.getHeight());
-               
+
         rightside.setSpacing(10);
-              
+
         root.add(tabs, 0, 0);
         root.add(spacer, 1, 0, 1, 2);
         root.add(rightside, 2, 0);
-               
+
         staging.setTop(menuBar);
         staging.setCenter(root);
-      
+
         uiOverhaul.setScene(rootOverhaul);
         uiOverhaul.setTitle("Quick Email Notification");
         uiOverhaul.show();
     }
-    
-    public static void main(String[] args){
-    	Application.launch(args);
+
+    public static void main(String[] args) {
+        Application.launch(args);
     }
 }

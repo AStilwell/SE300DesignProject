@@ -97,9 +97,8 @@ public class EmailList
     public Boolean isEmpty() {
     	if (emailList.isEmpty()){
     		return true;
-    	} else {
-    		return false;
     	}
+    	return false;
     }
     
     public void clearList(){
