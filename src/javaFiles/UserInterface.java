@@ -194,6 +194,7 @@ public class UserInterface extends Application
                 	VBox warningWindow = new VBox(error, ack);
                 	warningWindow.setSpacing(15);
                 	warningWindow.setAlignment(Pos.CENTER);
+                	warningWindow.setPrefSize(400, 200);
                 	
                 	Scene recallVerify = new Scene(warningWindow);
                 	
