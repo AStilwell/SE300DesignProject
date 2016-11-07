@@ -178,6 +178,7 @@ public class UserInterface extends Application
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
         				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+        				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
         			Stage invPass = new Stage();
@@ -202,7 +203,7 @@ public class UserInterface extends Application
                 	invPass.setTitle("WARNING");
                 	invPass.show();
         		}
-        		if (!sendSuccess){
+        		if (sendSuccess){
         			passwordWindow.close();
         			uiOverhaul.close();
         		}
