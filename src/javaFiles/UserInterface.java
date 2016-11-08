@@ -208,12 +208,6 @@ public class UserInterface extends Application
         			passwordWindow.close();
         			uiOverhaul.close();
         			//FIXME Put the call to your scene here
-        			try {
-						ShowGui.callGUI();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
         		}
         	});
         	
