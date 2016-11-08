@@ -87,7 +87,7 @@ public class ShowGui extends Application {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            ShowGui.class.getResourceAsStream("/client_secret.json");
+            ShowGui.class.getResourceAsStream(".\\refDocs\\client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
