@@ -337,22 +337,22 @@ public class Diagram
 
 		engDiagram.getChildren().addAll(engAll);
 		
-		oiPersonnel.getChildren().addAll(ea01, ea02);
+		oiPersonnel.getChildren().addAll(oi01, oi02);
 		oiPersonnel.setSpacing(15);
-		odPersonnel.getChildren().addAll(em01, em02);
+		odPersonnel.getChildren().addAll(od01, od02);
 		odPersonnel.setSpacing(15);
-		oiDiv.getChildren().addAll(eaStaff, eaPersonnel);
+		oiDiv.getChildren().addAll(oiStaff, oiPersonnel);
 		oiDiv.setSpacing(15);
-		odDiv.getChildren().addAll(emStaff, emPersonnel);
+		odDiv.getChildren().addAll(odStaff, odPersonnel);
 		odDiv.setSpacing(15);
-		navMain.getChildren().addAll(eaDiv, emDiv);
+		navMain.getChildren().addAll(oiDiv, odDiv);
 		navMain.setSpacing(15);
-		navAll.getChildren().addAll(engCommand, engMain);
+		navAll.getChildren().addAll(navCommand, navMain);
 		navAll.setSpacing(15);
 
 		navMain.setAlignment(Pos.CENTER);
 
-		navDiagram.getChildren().addAll(engAll);
+		navDiagram.getChildren().addAll(navAll);
 
 		sq1.getChildren().addAll(f11, f12, f13);
 		sq1.setSpacing(15);
