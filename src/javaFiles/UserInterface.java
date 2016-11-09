@@ -56,8 +56,10 @@ public class UserInterface extends Application
         Menu reset = new Menu("Reset...");
         Menu help = new Menu("Help");
         TabPane tabs = new TabPane();
+        Tab unitStaff = new Tab("Unit Staff", chart.get(5));
+        Tab bnStaff = new Tab("BN Staff", chart.get(0));
         Tab engineeringT = new Tab("Engineering", chart.get(2));
-        Tab navigationT = new Tab("Navigation"); //TODO Navigation Diagram
+        Tab navigationT = new Tab("Navigation", chart.get(3)); //TODO Navigation Diagram
         Tab weaponsT = new Tab("Weapons", chart.get(1));
         Tab mopltT = new Tab("Marine Options", chart.get(4));
         TextField subject = new TextField();
@@ -91,7 +93,7 @@ public class UserInterface extends Application
         menuBar.getMenus().addAll(file, reset, help);
         
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        tabs.getTabs().addAll(weaponsT, engineeringT, navigationT, mopltT);
+        tabs.getTabs().addAll(unitStaff, bnStaff, weaponsT, engineeringT, navigationT, mopltT);
         
         tabs.setOnMouseClicked(g -> {
         	addresses.setText(Arrays.toString(email.outputEmailList()));

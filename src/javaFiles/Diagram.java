@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -70,13 +71,30 @@ public class Diagram
 		HBox engMain = new HBox();
 
 		VBox engDiagram = new VBox();
+		
+		VBox navAll = new VBox();
+		VBox navCommand = new VBox();
+		VBox odStaff = new VBox();
+		VBox oiStaff = new VBox();
+		VBox odDiv = new VBox();
+		VBox oiDiv = new VBox();
+		VBox od01 = new VBox();
+		VBox od02 = new VBox();
+		VBox oi01 = new VBox();
+		VBox oi02 = new VBox();
+
+		HBox oiPersonnel = new HBox();
+		HBox odPersonnel = new HBox();
+		HBox navMain = new HBox();
+
+		VBox navDiagram = new VBox();
 
 		VBox moAll = new VBox(); //mo everyone
 		VBox moCommand = new VBox(); //mostaff
 		VBox sq1Staff = new VBox(); //div1 staff
 		VBox sq2Staff = new VBox(); //div2 staff
-		VBox sq1 = new VBox(); //division
-		VBox sq2 = new VBox(); //division	
+		HBox sq1 = new HBox(); //division
+		HBox sq2 = new HBox(); //division	
 		VBox f11 = new VBox(); //wc
 		VBox f12 = new VBox(); //wc
 		VBox f13 = new VBox(); //wc
@@ -84,11 +102,17 @@ public class Diagram
 		VBox f22 = new VBox(); //wc
 		VBox f23 = new VBox(); //wc
 
-		HBox sq1Personnel = new HBox();
-		HBox sq2Personnel = new HBox();
+		VBox sq1Personnel = new VBox();
+		VBox sq2Personnel = new VBox();
 		HBox moMain = new HBox();
 
 		VBox moDiagram = new VBox();
+		
+		VBox unitStaff = new VBox();
+		HBox allO3Staff = new HBox();
+		HBox depStaff = new HBox();
+		VBox marineStaff = new VBox();
+		VBox seniorStaff = new VBox();
 
 		File file = new File(filePath);
 		Workbook workbook = Workbook.getWorkbook(file);
@@ -100,6 +124,38 @@ public class Diagram
 			Cell workCenter = sheet.getCell(1, j);
 			switch (cell.getContents())
 			{
+			case "UNIT STAFF":
+				switch (workCenter.getContents()){
+				case "WEPS":
+					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "ENG":
+					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "NAV":
+					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "MOI":
+					marineStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "AMOI":
+					marineStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "CO":
+					seniorStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "XO":
+					seniorStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				}
+				break;
 			case "BN STAFF":
 				command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
 						sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
@@ -170,7 +226,37 @@ public class Diagram
 				}
 				break;
 			case "NAV":
-				// TODO
+				switch (workCenter.getContents())
+				{
+				case "STAFF":
+					navCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OI":
+					oiStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OI-01":
+					oi01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OI-02":
+					oi02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OD":
+					odStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OD-01":
+					od01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "OD-02":
+					od02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				}
 				break;
 			case "MO":
 				switch (workCenter.getContents())
@@ -250,6 +336,23 @@ public class Diagram
 		engMain.setAlignment(Pos.CENTER);
 
 		engDiagram.getChildren().addAll(engAll);
+		
+		oiPersonnel.getChildren().addAll(ea01, ea02);
+		oiPersonnel.setSpacing(15);
+		odPersonnel.getChildren().addAll(em01, em02);
+		odPersonnel.setSpacing(15);
+		oiDiv.getChildren().addAll(eaStaff, eaPersonnel);
+		oiDiv.setSpacing(15);
+		odDiv.getChildren().addAll(emStaff, emPersonnel);
+		odDiv.setSpacing(15);
+		navMain.getChildren().addAll(eaDiv, emDiv);
+		navMain.setSpacing(15);
+		navAll.getChildren().addAll(engCommand, engMain);
+		navAll.setSpacing(15);
+
+		navMain.setAlignment(Pos.CENTER);
+
+		navDiagram.getChildren().addAll(engAll);
 
 		sq1.getChildren().addAll(f11, f12, f13);
 		sq1.setSpacing(15);
@@ -257,13 +360,24 @@ public class Diagram
 		sq2.setSpacing(15);
 		
 		sq1Personnel.getChildren().addAll(sq1Staff, sq1);
+		sq1Personnel.setSpacing(10);
 		sq2Personnel.getChildren().addAll(sq2Staff, sq2);
+		sq2Personnel.setSpacing(10);
 		
 		moMain.getChildren().addAll(sq1Personnel, sq2Personnel);
+		moMain.setAlignment(Pos.CENTER);
+		moMain.setSpacing(25);
 		
 		moAll.getChildren().addAll(moCommand, moMain);
+		moAll.setSpacing(15);
 		
 		moDiagram.getChildren().add(moAll);
+		
+		allO3Staff.getChildren().addAll(depStaff, marineStaff);
+		allO3Staff.setAlignment(Pos.CENTER);
+		allO3Staff.setSpacing(10);
+		unitStaff.getChildren().addAll(seniorStaff, allO3Staff);
+		unitStaff.setSpacing(10);
 		
 		command.setAlignment(Pos.TOP_CENTER);
 		wepsDiagram.setAlignment(Pos.TOP_CENTER);
@@ -274,8 +388,9 @@ public class Diagram
 		storage.add(0, command);
 		storage.add(1, wepsDiagram);
 		storage.add(2, engDiagram);
-		storage.add(3, null);
+		storage.add(3, navDiagram);
 		storage.add(4, moDiagram);
+		storage.add(5, unitStaff);
 	}
 
 	/**
@@ -293,15 +408,19 @@ public class Diagram
 		VBox node = new VBox();
 
 		Text title = new Text();
-		title.setText("TITLE: " + p);
+		title.setText(p);
+		title.setTextAlignment(TextAlignment.CENTER);
 
 		Text name = new Text();
-		name.setText("NAME: " + n);
+		name.setText(n);
+		name.setTextAlignment(TextAlignment.CENTER);
 
 		Text email = new Text();
-		email.setText("EMAIL: " + e);
+		email.setText(e);
+		email.setTextAlignment(TextAlignment.CENTER);
 
 		node.getChildren().addAll(title, name, email);
+		node.setAlignment(Pos.CENTER);
 
 		nodeList.add(node);
 
