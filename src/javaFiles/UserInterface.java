@@ -55,12 +55,7 @@ public class UserInterface extends Application
         Menu reset = new Menu("Reset...");
         Menu help = new Menu("Help");
         TabPane tabs = new TabPane();
-        Tab unitStaff = new Tab("Unit Staff", chart.get(5));
-        Tab bnStaff = new Tab("BN Staff", chart.get(0));
-        Tab engineeringT = new Tab("Engineering", chart.get(2));
-        Tab navigationT = new Tab("Navigation", chart.get(3)); 
-        Tab weaponsT = new Tab("Weapons", chart.get(1));
-        Tab mopltT = new Tab("Marine Options", chart.get(4));
+        
         TextField subject = new TextField();
         TextArea body = new TextArea();
         TextArea addresses = new TextArea();
@@ -76,6 +71,73 @@ public class UserInterface extends Application
         BorderPane staging = new BorderPane();
         Scene rootOverhaul = new Scene(staging);
         Stage uiOverhaul = new Stage();
+        
+        Tab bnStaff = new Tab("BN Staff", chart.get(0));
+        Tab weaponsT = new Tab("Weapons", chart.get(1));
+        Tab engineeringT = new Tab("Engineering", chart.get(2));
+        Tab navigationT = new Tab("Navigation", chart.get(3)); 
+        Tab mopltT = new Tab("Marine Options", chart.get(4));
+        Tab unitStaff = new Tab("Unit Staff", chart.get(5));
+        
+        chart.get(0).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.BNSTAFF.size(); i++){
+        			diagram.BNSTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.BNSTAFFemails.get(i));
+        			email.addName(email.getNameList(), diagram.BNSTAFFnames.get(i));
+        		}
+        	}
+        });
+        
+        chart.get(1).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.WEPS.size(); i++){
+        			diagram.WEPS.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.WEPSemails.get(i));
+        			email.addName(email.getNameList(), diagram.WEPSnames.get(i));
+        		}
+        	}
+        });
+        
+        chart.get(2).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.ENG.size(); i++){
+        			diagram.ENG.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.ENGemails.get(i));
+        			email.addName(email.getNameList(), diagram.ENGnames.get(i));
+        		}
+        	}
+        });
+        
+        chart.get(3).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.NAV.size(); i++){
+        			diagram.NAV.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.NAVemails.get(i));
+        			email.addName(email.getNameList(), diagram.NAVnames.get(i));
+        		}
+        	}
+        });
+        
+        chart.get(4).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.MOPLT.size(); i++){
+        			diagram.MOPLT.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.MOPLTemails.get(i));
+        			email.addName(email.getNameList(), diagram.MOPLTnames.get(i));
+        		}
+        	}
+        });
+        
+        chart.get(5).setOnMouseClicked(fn -> {
+        	if(fn.getClickCount() == 3){
+        		for(int i = 0; i < diagram.USTAFF.size(); i++){
+        			diagram.USTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
+        			email.addEmail(email.getEmailList(), diagram.USTAFFemails.get(i));
+        			email.addName(email.getNameList(), diagram.USTAFFnames.get(i));
+        		}
+        	}
+        });
         
         exit.setOnAction(e -> Platform.exit());
         

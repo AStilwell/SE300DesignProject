@@ -25,8 +25,30 @@ public class Diagram
 
 	private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //TODO
 	//private URL jarPath = getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls");
+	
 	ArrayList<VBox> storage = new ArrayList<>();
 	ArrayList<VBox> nodeList = new ArrayList<>();
+	
+	ArrayList<VBox> WEPS = new ArrayList<>();
+	ArrayList<VBox> ENG = new ArrayList<>();
+	ArrayList<VBox> MOPLT = new ArrayList<>();
+	ArrayList<VBox> NAV = new ArrayList<>();
+	ArrayList<VBox> BNSTAFF = new ArrayList<>();
+	ArrayList<VBox> USTAFF = new ArrayList<>();
+	
+	ArrayList<String> WEPSemails = new ArrayList<>();
+	ArrayList<String> ENGemails= new ArrayList<>();
+	ArrayList<String> NAVemails = new ArrayList<>();
+	ArrayList<String> MOPLTemails = new ArrayList<>();
+	ArrayList<String> BNSTAFFemails = new ArrayList<>();
+	ArrayList<String> USTAFFemails = new ArrayList<>();
+	
+	ArrayList<String> WEPSnames = new ArrayList<>();
+	ArrayList<String> ENGnames= new ArrayList<>();
+	ArrayList<String> NAVnames = new ArrayList<>();
+	ArrayList<String> MOPLTnames = new ArrayList<>();
+	ArrayList<String> BNSTAFFnames = new ArrayList<>();
+	ArrayList<String> USTAFFnames = new ArrayList<>();
 	
 	/**public URL getJarPath(){
 		return jarPath;
@@ -135,31 +157,31 @@ public class Diagram
 				switch (workCenter.getContents()){
 				case "WEPS":
 					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "ENG":
 					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "NAV":
 					depStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "MOI":
 					marineStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "AMOI":
 					marineStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "CO":
 					seniorStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				case "XO":
 					seniorStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(),USTAFF, USTAFFemails, USTAFFnames));
 					break;
 				}
 				break;
@@ -167,19 +189,19 @@ public class Diagram
 				switch(sheet.getCell(2,j).getContents()){
 				case "CO":
 					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), BNSTAFF, BNSTAFFemails, BNSTAFFnames));
 					break;
 				case "XO":
 					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), BNSTAFF, BNSTAFFemails, BNSTAFFnames));
 					break;
 				case "CMC":
 					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), BNSTAFF, BNSTAFFemails, BNSTAFFnames));
 					break;
 				default:
 					staffBillets.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), BNSTAFF, BNSTAFFemails, BNSTAFFnames));
 					break;
 				}
 				
@@ -188,31 +210,31 @@ public class Diagram
 				{
 				case "STAFF":
 					wepsCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CA":
 					caStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CA-01":
 					ca01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CA-02":
 					ca02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CG":
 					cgStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CG-01":
 					cg01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				case "CG-02":
 					cg02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), WEPS, WEPSemails, WEPSnames));
 					break;
 				}
 				break;
@@ -221,31 +243,31 @@ public class Diagram
 				{
 				case "STAFF":
 					engCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EA":
 					eaStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EA-01":
 					ea01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EA-02":
 					ea02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EM":
 					emStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EM-01":
 					em01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				case "EM-02":
 					em02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), ENG, ENGemails, ENGnames));
 					break;
 				}
 				break;
@@ -254,31 +276,31 @@ public class Diagram
 				{
 				case "STAFF":
 					navCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OI":
 					oiStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OI-01":
 					oi01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OI-02":
 					oi02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OD":
 					odStaff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OD-01":
 					od01.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				case "OD-02":
 					od02.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), NAV, NAVemails, NAVnames));
 					break;
 				}
 				break;
@@ -287,39 +309,39 @@ public class Diagram
 				{
 				case "STAFF":
 					moCommand.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "SQUAD 1":
 					sq1Staff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "1-1":
 					f11.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "1-2":
 					f12.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "1-3":
 					f13.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "SQUAD 2":
 					sq2Staff.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "2-1":
 					f21.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "2-2":
 					f22.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				case "2-3":
 					f23.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), MOPLT, MOPLTemails, MOPLTnames));
 					break;
 				}
 				break;
@@ -419,7 +441,6 @@ public class Diagram
 		engDiagram.setAlignment(Pos.TOP_CENTER);
 		moDiagram.setAlignment(Pos.TOP_CENTER);
 		
-		
 		storage.add(0, command);
 		storage.add(1, wepsDiagram);
 		storage.add(2, engDiagram);
@@ -437,7 +458,7 @@ public class Diagram
 	 *            The email of the row being read.
 	 * @return The created graphic node that contains name, position, and email
 	 */
-	private VBox createPane(String p, String n, String e)
+	private VBox createPane(String p, String n, String e, ArrayList<VBox> location, ArrayList<String> specEmail, ArrayList<String> specName)
 	{
 
 		VBox node = new VBox();
@@ -484,6 +505,11 @@ public class Diagram
 
 		node.setStyle("-fx-border-color: black");
 		node.setSpacing(5);
+		
+		location.add(node);
+		specEmail.add(e);
+		specName.add(n);
+		
 		return node;
 	}
 
