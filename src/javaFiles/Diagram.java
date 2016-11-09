@@ -303,36 +303,36 @@ public class Diagram
 		}
 		wepsCommand.setSpacing(10);
 		caPersonnel.getChildren().addAll(ca01, ca02);
-		caPersonnel.setSpacing(15);
+		caPersonnel.setSpacing(10);
 		cgPersonnel.getChildren().addAll(cg01, cg02);
-		cgPersonnel.setSpacing(15);
+		cgPersonnel.setSpacing(10);
 		caDiv.getChildren().addAll(caStaff, caPersonnel);
-		caDiv.setSpacing(15);
+		caDiv.setSpacing(10);
 		cgDiv.getChildren().addAll(cgStaff, cgPersonnel);
-		cgDiv.setSpacing(15);
+		cgDiv.setSpacing(10);
 		wepsMain.getChildren().addAll(caDiv, cgDiv);
-		wepsMain.setSpacing(15);
+		wepsMain.setSpacing(10);
 
 		wepsMain.setAlignment(Pos.CENTER);
 
 		wepsAll.getChildren().addAll(wepsCommand, wepsMain);
-		wepsAll.setSpacing(15);
+		wepsAll.setSpacing(10);
 
 		wepsDiagram.getChildren().addAll(wepsAll);
 		
 		engCommand.setSpacing(10);
 		eaPersonnel.getChildren().addAll(ea01, ea02);
-		eaPersonnel.setSpacing(15);
+		eaPersonnel.setSpacing(10);
 		emPersonnel.getChildren().addAll(em01, em02);
-		emPersonnel.setSpacing(15);
+		emPersonnel.setSpacing(10);
 		eaDiv.getChildren().addAll(eaStaff, eaPersonnel);
-		eaDiv.setSpacing(15);
+		eaDiv.setSpacing(10);
 		emDiv.getChildren().addAll(emStaff, emPersonnel);
-		emDiv.setSpacing(15);
+		emDiv.setSpacing(10);
 		engMain.getChildren().addAll(eaDiv, emDiv);
-		engMain.setSpacing(15);
+		engMain.setSpacing(10);
 		engAll.getChildren().addAll(engCommand, engMain);
-		engAll.setSpacing(15);
+		engAll.setSpacing(10);
 
 		engMain.setAlignment(Pos.CENTER);
 
@@ -340,17 +340,17 @@ public class Diagram
 		
 		navCommand.setSpacing(10);
 		oiPersonnel.getChildren().addAll(oi01, oi02);
-		oiPersonnel.setSpacing(15);
+		oiPersonnel.setSpacing(10);
 		odPersonnel.getChildren().addAll(od01, od02);
-		odPersonnel.setSpacing(15);
+		odPersonnel.setSpacing(10);
 		oiDiv.getChildren().addAll(oiStaff, oiPersonnel);
-		oiDiv.setSpacing(15);
+		oiDiv.setSpacing(10);
 		odDiv.getChildren().addAll(odStaff, odPersonnel);
-		odDiv.setSpacing(15);
+		odDiv.setSpacing(10);
 		navMain.getChildren().addAll(oiDiv, odDiv);
-		navMain.setSpacing(15);
+		navMain.setSpacing(10);
 		navAll.getChildren().addAll(navCommand, navMain);
-		navAll.setSpacing(15);
+		navAll.setSpacing(10);
 
 		navMain.setAlignment(Pos.CENTER);
 
@@ -358,9 +358,9 @@ public class Diagram
 		
 		moCommand.setSpacing(10);
 		sq1.getChildren().addAll(f11, f12, f13);
-		sq1.setSpacing(15);
+		sq1.setSpacing(10);
 		sq2.getChildren().addAll(f21, f22, f23);
-		sq2.setSpacing(15);
+		sq2.setSpacing(10);
 		
 		sq1Personnel.getChildren().addAll(sq1Staff, sq1);
 		sq1Personnel.setSpacing(10);
@@ -369,10 +369,10 @@ public class Diagram
 		
 		moMain.getChildren().addAll(sq1Personnel, sq2Personnel);
 		moMain.setAlignment(Pos.CENTER);
-		moMain.setSpacing(25);
+		moMain.setSpacing(10);
 		
 		moAll.getChildren().addAll(moCommand, moMain);
-		moAll.setSpacing(15);
+		moAll.setSpacing(10);
 		
 		moDiagram.getChildren().add(moAll);
 		
@@ -430,7 +430,7 @@ public class Diagram
 		node.setAlignment(Pos.CENTER);
 
 		nodeList.add(node);
-
+		
 		node.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
 			EmailList temp = new EmailList();
