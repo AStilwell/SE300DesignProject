@@ -107,8 +107,11 @@ public class EmailList
         for (int i = 0; i < sheet.getRows(); i++) 
         {
             Cell cell = sheet.getCell(4, i);
-
-            emailList.add(cell.getContents());
+            if(cell.getContents().equals("")){
+            	//Do nothing
+            } else {
+            	emailList.add(cell.getContents());
+            }
         }
     }
     
