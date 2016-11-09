@@ -301,7 +301,7 @@ public class Diagram
 				break;
 			}
 		}
-
+		wepsCommand.setSpacing(10);
 		caPersonnel.getChildren().addAll(ca01, ca02);
 		caPersonnel.setSpacing(15);
 		cgPersonnel.getChildren().addAll(cg01, cg02);
@@ -319,7 +319,8 @@ public class Diagram
 		wepsAll.setSpacing(15);
 
 		wepsDiagram.getChildren().addAll(wepsAll);
-
+		
+		engCommand.setSpacing(10);
 		eaPersonnel.getChildren().addAll(ea01, ea02);
 		eaPersonnel.setSpacing(15);
 		emPersonnel.getChildren().addAll(em01, em02);
@@ -337,6 +338,7 @@ public class Diagram
 
 		engDiagram.getChildren().addAll(engAll);
 		
+		navCommand.setSpacing(10);
 		oiPersonnel.getChildren().addAll(oi01, oi02);
 		oiPersonnel.setSpacing(15);
 		odPersonnel.getChildren().addAll(od01, od02);
@@ -353,7 +355,8 @@ public class Diagram
 		navMain.setAlignment(Pos.CENTER);
 
 		navDiagram.getChildren().addAll(navAll);
-
+		
+		moCommand.setSpacing(10);
 		sq1.getChildren().addAll(f11, f12, f13);
 		sq1.setSpacing(15);
 		sq2.getChildren().addAll(f21, f22, f23);
@@ -372,6 +375,10 @@ public class Diagram
 		moAll.setSpacing(15);
 		
 		moDiagram.getChildren().add(moAll);
+		
+		command.setSpacing(10);
+		
+		seniorStaff.setSpacing(10);
 		
 		allO3Staff.getChildren().addAll(depStaff, marineStaff);
 		allO3Staff.setAlignment(Pos.CENTER);
