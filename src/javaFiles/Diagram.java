@@ -42,6 +42,7 @@ public class Diagram
 	{
 
 		VBox command = new VBox();
+		HBox staffBillets = new HBox();
 
 		VBox wepsAll = new VBox();
 		VBox wepsCommand = new VBox();
@@ -163,8 +164,25 @@ public class Diagram
 				}
 				break;
 			case "BN STAFF":
-				command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
-						sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+				switch(sheet.getCell(2,j).getContents()){
+				case "CO":
+					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "XO":
+					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				case "CMC":
+					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				default:
+					staffBillets.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
+							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents()));
+					break;
+				}
+				
 			case "WEPS":
 				switch (workCenter.getContents())
 				{
@@ -383,6 +401,7 @@ public class Diagram
 		moDiagram.getChildren().add(moAll);
 		
 		command.setSpacing(10);
+		command.getChildren().add(staffBillets);
 		
 		seniorStaff.setSpacing(10);
 		
