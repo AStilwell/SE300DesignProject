@@ -54,7 +54,11 @@ public class EmailList
      */
     public void addEmail(ArrayList<String> input, String email) 
     {
+    	if(emailList.contains(email)){
+    		//Do nothing
+    	} else {
         input.add(email);
+    	}
     }
 
     /**
@@ -63,17 +67,29 @@ public class EmailList
      */
     public void delEmail(ArrayList<String> input, String email) 
     {
-        input.remove(email);
+    	if(emailList.contains(email)){
+    		input.remove(email);
+    	} else {
+    		//Do nothing
+    	}
     }
 
     public void addName(ArrayList<String> input, String name) 
     {
-        input.add(name);
+    	if(nameList.contains(name)){
+    		
+    	} else {
+    		input.add(name);
+    	}
     }
 
     public void delName(ArrayList<String> input, String name) 
     {
-        input.remove(name);
+    	if(nameList.contains(name)){
+    		input.remove(name);
+    	} else {
+    		
+    	}
     }
 
     /**
@@ -81,11 +97,12 @@ public class EmailList
      * @throws BiffException
      */
     public void getAllEmails() throws IOException, BiffException 
-    {
+    {	
+    	emailList.clear();
         File file = new File(".\\src\\refDocs\\Test Spreadsheet.xls" ); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
-
+        
         for (int i = 0; i < sheet.getRows(); i++) 
         {
             Cell cell = sheet.getCell(4, i);

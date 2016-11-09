@@ -101,10 +101,8 @@ public class UserInterface extends Application
         	}
         });
         
-
         subject.setPromptText("Subject");
         
-
         body.setPromptText("Message Contents");
                
         addresses.setPromptText("No Emails Selected");
