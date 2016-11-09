@@ -71,18 +71,18 @@ public class Diagram
 
 		VBox engDiagram = new VBox();
 
-		VBox moAll = new VBox();
-		VBox moCommand = new VBox();
-		VBox sq1Staff = new VBox();
-		VBox sq2Staff = new VBox();
-		VBox sq1 = new VBox();
-		VBox sq2 = new VBox();
-		VBox f11 = new VBox();
-		VBox f12 = new VBox();
-		VBox f13 = new VBox();
-		VBox f21 = new VBox();
-		VBox f22 = new VBox();
-		VBox f23 = new VBox();
+		VBox moAll = new VBox(); //mo everyone
+		VBox moCommand = new VBox(); //mostaff
+		VBox sq1Staff = new VBox(); //div1 staff
+		VBox sq2Staff = new VBox(); //div2 staff
+		VBox sq1 = new VBox(); //division
+		VBox sq2 = new VBox(); //division	
+		VBox f11 = new VBox(); //wc
+		VBox f12 = new VBox(); //wc
+		VBox f13 = new VBox(); //wc
+		VBox f21 = new VBox(); //wc
+		VBox f22 = new VBox(); //wc
+		VBox f23 = new VBox(); //wc
 
 		HBox sq1Personnel = new HBox();
 		HBox sq2Personnel = new HBox();
@@ -251,30 +251,31 @@ public class Diagram
 
 		engDiagram.getChildren().addAll(engAll);
 
-		/**sq1Personnel.getChildren().addAll(f11, f12, f13);
-		sq1Personnel.setSpacing(15);
-		sq2Personnel.getChildren().addAll(f21, f22, f23);
-		sq2Personnel.setSpacing(15);
-		eaDiv.getChildren().addAll(eaStaff, eaPersonnel); // TODO
-		eaDiv.setSpacing(15);
-		emDiv.getChildren().addAll(emStaff, emPersonnel);
-		emDiv.setSpacing(15);
-		engMain.getChildren().addAll(eaDiv, emDiv);
-		engMain.setSpacing(15);
-		engAll.getChildren().addAll(engCommand, engMain);
-		engAll.setSpacing(15);
-
-		engMain.setAlignment(Pos.CENTER);
-
-		engDiagram.getChildren().addAll(engAll);
-		**/
+		sq1.getChildren().addAll(f11, f12, f13);
+		sq1.setSpacing(15);
+		sq2.getChildren().addAll(f21, f22, f23);
+		sq2.setSpacing(15);
+		
+		sq1Personnel.getChildren().addAll(sq1Staff, sq1);
+		sq2Personnel.getChildren().addAll(sq2Staff, sq2);
+		
+		moMain.getChildren().addAll(sq1Personnel, sq2Personnel);
+		
+		moAll.getChildren().addAll(moCommand, moMain);
+		
+		moDiagram.getChildren().add(moAll);
+		
 		command.setAlignment(Pos.TOP_CENTER);
 		wepsDiagram.setAlignment(Pos.TOP_CENTER);
 		engDiagram.setAlignment(Pos.TOP_CENTER);
+		moDiagram.setAlignment(Pos.TOP_CENTER);
+		
 		
 		storage.add(0, command);
 		storage.add(1, wepsDiagram);
 		storage.add(2, engDiagram);
+		storage.add(3, null);
+		storage.add(4, moDiagram);
 	}
 
 	/**

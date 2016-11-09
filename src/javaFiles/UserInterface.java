@@ -57,9 +57,9 @@ public class UserInterface extends Application
         Menu help = new Menu("Help");
         TabPane tabs = new TabPane();
         Tab engineeringT = new Tab("Engineering", chart.get(2));
-        Tab navigationT = new Tab("Navigation");
+        Tab navigationT = new Tab("Navigation"); //TODO Navigation Diagram
         Tab weaponsT = new Tab("Weapons", chart.get(1));
-        Tab mopltT = new Tab("Marine Options");
+        Tab mopltT = new Tab("Marine Options", chart.get(4));
         TextField subject = new TextField();
         TextArea body = new TextArea();
         TextArea addresses = new TextArea();
