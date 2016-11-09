@@ -99,7 +99,8 @@ public class EmailList
     public void getAllEmails() throws IOException, BiffException 
     {	
     	emailList.clear();
-        File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
+    	File file = new File(".\\src\\refDocs\\Test Spreadsheet.xls");
+    	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
         
