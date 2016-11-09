@@ -25,10 +25,14 @@ import java.util.ArrayList;
 public class Diagram
 {
 
-	private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //TODO
-	//private URL jarPath = this.getClass().getClassLoader().getResource("refDocs/Test Spreadsheet.xls");
+	//private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //TODO
+	private URL jarPath = getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls");
 	ArrayList<VBox> storage = new ArrayList<>();
 	ArrayList<VBox> nodeList = new ArrayList<>();
+	
+	public URL getJarPath(){
+		return jarPath;
+	}
 
 	/**
 	 * @return Generates an array list of appropriate nodes for use in the main
@@ -117,7 +121,7 @@ public class Diagram
 		VBox marineStaff = new VBox();
 		VBox seniorStaff = new VBox();
 
-		File file = new File(filePath);
+		File file = new File(jarPath.getFile());
 		Workbook workbook = Workbook.getWorkbook(file);
 		Sheet sheet = workbook.getSheet(0);
 
