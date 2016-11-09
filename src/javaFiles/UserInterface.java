@@ -32,7 +32,6 @@ public class UserInterface extends Application
     @Override
     public void start(Stage primaryStage) 
     {
-        //TODO New UI Layout
         //Create new email list
         EmailList email = new EmailList();
 
@@ -59,7 +58,7 @@ public class UserInterface extends Application
         Tab unitStaff = new Tab("Unit Staff", chart.get(5));
         Tab bnStaff = new Tab("BN Staff", chart.get(0));
         Tab engineeringT = new Tab("Engineering", chart.get(2));
-        Tab navigationT = new Tab("Navigation", chart.get(3)); //TODO Navigation Diagram
+        Tab navigationT = new Tab("Navigation", chart.get(3)); 
         Tab weaponsT = new Tab("Weapons", chart.get(1));
         Tab mopltT = new Tab("Marine Options", chart.get(4));
         TextField subject = new TextField();
