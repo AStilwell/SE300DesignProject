@@ -428,6 +428,10 @@ public class Diagram
 		staffBillets.setSpacing(10);
 		staffBillets.setAlignment(Pos.CENTER);
 		
+		depStaff.setSpacing(10);
+		
+		marineStaff.setSpacing(10);
+		
 		seniorStaff.setSpacing(10);
 		
 		allO3Staff.getChildren().addAll(depStaff, marineStaff);
