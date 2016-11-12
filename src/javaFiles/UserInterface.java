@@ -13,8 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import jxl.read.biff.BiffException;
-import jxl.write.Border;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
