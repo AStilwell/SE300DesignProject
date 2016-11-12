@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class Diagram
 {
 
-	private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //TODO
+	private static final String filePath = ".\\src\\refDocs\\Test Spreadsheet.xls"; //FIXME
 	//private URL jarPath = getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls");
 	
 	ArrayList<VBox> storage = new ArrayList<>();
@@ -49,10 +49,6 @@ public class Diagram
 	ArrayList<String> MOPLTnames = new ArrayList<>();
 	ArrayList<String> BNSTAFFnames = new ArrayList<>();
 	ArrayList<String> USTAFFnames = new ArrayList<>();
-	
-	/**public URL getJarPath(){
-		return jarPath;
-	}**/
 
 	/**
 	 * @return Generates an array list of appropriate nodes for use in the main
@@ -186,7 +182,7 @@ public class Diagram
 				}
 				break;
 			case "BN STAFF":
-				switch(sheet.getCell(2,j).getContents()){
+				switch(workCenter.getContents()){
 				case "CO":
 					command.getChildren().add(createPane(sheet.getCell(2, j).getContents(),
 							sheet.getCell(3, j).getContents(), sheet.getCell(4, j).getContents(), BNSTAFF, BNSTAFFemails, BNSTAFFnames));
@@ -470,14 +466,17 @@ public class Diagram
 		Text title = new Text();
 		title.setText(p);
 		title.setTextAlignment(TextAlignment.CENTER);
+		title.setStyle("-fx-font-weight: Bold; -fx-font-size: 15");
 
 		Text name = new Text();
 		name.setText(n);
 		name.setTextAlignment(TextAlignment.CENTER);
+		name.setStyle("-fx-font-size: 12");
 
 		Text email = new Text();
 		email.setText(e);
 		email.setTextAlignment(TextAlignment.CENTER);
+		email.setStyle("-fx-font-size: 10");
 
 		node.getChildren().addAll(title, name, email);
 		node.setAlignment(Pos.CENTER);
