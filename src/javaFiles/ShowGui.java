@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //
-public class ShowGui extends Application {
+public class ShowGui{
 	
 
 	
@@ -128,12 +128,12 @@ public class ShowGui extends Application {
 	
 	Button button1;
 	Stage window;
+	Stage secondaryStage = new Stage();
 	
 	
 	
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		window = primaryStage;
+	public void start() throws Exception {
+		window = secondaryStage;
 		window.setTitle("confirmation list");
 		window.setOnCloseRequest(e -> {
 			e.consume();
@@ -235,13 +235,13 @@ public class ShowGui extends Application {
 		}
 	}
     
-    public static void main(String[] args) throws IOException {
+    public void handoff() throws IOException {
     
     	Thread t1 = new Thread(new ReadSheet());
     
     	
-        t1.start();  
-		launch();
+        t1.start();
+		//launch();
           
     }
 

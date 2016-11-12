@@ -269,6 +269,14 @@ public class UserInterface extends Application
         			passwordWindow.close();
         			uiOverhaul.close();
         			//FIXME Put the call to your scene here
+        			ShowGui nextUI = new ShowGui();
+        			
+        			try {
+						nextUI.start();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
         		}
         	});
         	
