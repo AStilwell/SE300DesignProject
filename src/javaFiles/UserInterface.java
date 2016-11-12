@@ -244,7 +244,7 @@ public class UserInterface extends Application
         		} catch(MessagingException me) {
         			Stage invPass = new Stage();
                 	
-                	Text error = new Text("Invalid User Name/Password");
+                	Text error = new Text("Authentication Error");
                 	
                 	Button ack = new Button("OK");
                 	ack.setAlignment(Pos.CENTER);
