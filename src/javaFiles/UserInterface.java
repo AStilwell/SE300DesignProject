@@ -25,8 +25,9 @@ import javax.mail.MessagingException;
 public class UserInterface extends Application 
 {
 
-    /**
-     * @param primaryStage Stage default for creation of GUI.
+    
+    /* (non-Javadoc)
+     * @see javafx.application.Application#start(javafx.stage.Stage)
      */
     @Override
     public void start(Stage uiOverhaul) 
@@ -332,6 +333,11 @@ public class UserInterface extends Application
         uiOverhaul.show();
     }
     
+    /**
+     * Method needed for IDEs with limited JavaFX8 compatibility.
+     * 
+     * @param args Arguments to be passed to the Application.launch() method
+     */
     public static void main(String[] args){
     	Application.launch(args);
     }

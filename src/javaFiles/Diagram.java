@@ -51,6 +51,8 @@ public class Diagram
 	ArrayList<String> USTAFFnames = new ArrayList<>();
 
 	/**
+	 * Method to read .xls files and process the contents of the file
+	 * 
 	 * @return Generates an array list of appropriate nodes for use in the main
 	 *         GUI creation.
 	 * @throws BiffException
@@ -450,12 +452,11 @@ public class Diagram
 	}
 
 	/**
-	 * @param p
-	 *            The position of the row being read.
-	 * @param n
-	 *            The name of the row being read.
-	 * @param e
-	 *            The email of the row being read.
+	 * Method to create the individual nodes used in the diagram
+	 * 
+	 * @param p The position of the row being read.
+	 * @param n The name of the row being read.
+	 * @param e The email of the row being read.
 	 * @return The created graphic node that contains name, position, and email
 	 */
 	private VBox createPane(String p, String n, String e, ArrayList<VBox> location, ArrayList<String> specEmail, ArrayList<String> specName)
@@ -517,6 +518,8 @@ public class Diagram
 	}
 
 	/**
+	 * Method to get the diagram created by this class.
+	 * 
 	 * @return The final diagram created by this class
 	 */
 	public ArrayList<VBox> getDiagram()
@@ -524,6 +527,9 @@ public class Diagram
 		return storage;
 	}
 
+	/**
+	 * Method to clear highlight from diagram
+	 */
 	public void clearSelection()
 	{
 		for (int i = 0; i < nodeList.size(); i++)
@@ -532,6 +538,9 @@ public class Diagram
 		}
 	}
 
+	/**
+	 * Method to highlight all nodes in diagram
+	 */
 	public void selectAll()
 	{
 		for (int i = 0; i < nodeList.size(); i++)
