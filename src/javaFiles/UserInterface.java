@@ -330,6 +330,7 @@ public class UserInterface extends Application
         
         uiOverhaul.setScene(rootOverhaul);
         uiOverhaul.setTitle("Quick Email Notification");
+        uiOverhaul.setResizable(false);
         uiOverhaul.show();
     }
     
