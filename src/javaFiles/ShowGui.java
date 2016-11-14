@@ -8,13 +8,8 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.JsonFactory;
-import com.google.api.client.util.GenericData.Flags;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.model.*;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,7 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //
-public class ShowGui extends Application {
+public class ShowGui{
 	
 
 	
@@ -128,12 +123,12 @@ public class ShowGui extends Application {
 	
 	Button button1;
 	Stage window;
+	Stage secondaryStage = new Stage();
 	
 	
 	
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		window = primaryStage;
+	public void start() throws Exception {
+		window = secondaryStage;
 		window.setTitle("confirmation list");
 		window.setOnCloseRequest(e -> {
 			e.consume();
@@ -235,13 +230,13 @@ public class ShowGui extends Application {
 		}
 	}
     
-    public static void main(String[] args) throws IOException {
+    public void handoff() throws IOException {
     
     	Thread t1 = new Thread(new ReadSheet());
     
     	
-        t1.start();  
-		launch();
+        t1.start();
+		//launch();
           
     }
 

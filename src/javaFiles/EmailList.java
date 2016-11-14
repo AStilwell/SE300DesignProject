@@ -7,9 +7,6 @@ import jxl.read.biff.BiffException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javafx.scene.Node;
-import javafx.scene.Parent;
 // Logan was here
 /**So was Peter
  * Created by Andrew Stilwell on 24-Oct-16.
