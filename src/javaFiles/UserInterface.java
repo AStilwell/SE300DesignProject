@@ -237,7 +237,10 @@ public class UserInterface extends Application
         		Boolean sendSuccess = false;
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
+        				long start = System.nanoTime();
         				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+        				long stop = System.nanoTime();
+        				System.out.print((stop - start)/1000000000 + "seconds");
         				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
