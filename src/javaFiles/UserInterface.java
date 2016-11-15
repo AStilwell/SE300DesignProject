@@ -1,4 +1,3 @@
-package javaFiles;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -25,13 +24,17 @@ import javax.mail.MessagingException;
 public class UserInterface extends Application 
 {
 
+	public static Stage uiOverhaul;
     
     /* (non-Javadoc)
      * @see javafx.application.Application#start(javafx.stage.Stage)
      */
     @Override
-    public void start(Stage uiOverhaul) 
+    public void start(Stage primaryStage) 
     {
+    	//the stage
+    	 uiOverhaul = new Stage();
+    	 
         //Create new email list
         EmailList email = new EmailList();
 
@@ -237,10 +240,7 @@ public class UserInterface extends Application
         		Boolean sendSuccess = false;
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
-        				long start = System.nanoTime();
         				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
-        				long stop = System.nanoTime();
-        				System.out.print((stop - start)/1000000000 + "seconds");
         				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
@@ -269,14 +269,13 @@ public class UserInterface extends Application
         		}
         		if (sendSuccess){
         			passwordWindow.close();
-        			uiOverhaul.close();
-        			ShowGui nextUI = new ShowGui();
         			
-        			try {
-						nextUI.start();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+        			//Show conf list
+        			ShowGui nextUI = new ShowGui();
+        			nextUI.showConf();
+        			
+        			
+        			
         		}
         	});
         	ok.setPrefSize(100, 20);
