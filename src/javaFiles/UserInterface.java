@@ -1,3 +1,5 @@
+package javaFiles;
+
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -152,7 +154,7 @@ public class UserInterface extends Application
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         tabs.getTabs().addAll(unitStaff, bnStaff, weaponsT, engineeringT, navigationT, mopltT);
         tabs.setOnMouseClicked(g -> {
-        	addresses.setText(Arrays.toString(email.outputEmailList()));
+        	addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         	if(email.isEmpty()){
         		addresses.setText(null);
         	}
@@ -180,7 +182,7 @@ public class UserInterface extends Application
         		try {
                 email.getAllEmails();
                 diagram.selectAll();
-        		addresses.setText(Arrays.toString(email.outputEmailList()));
+        		addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         		body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
         		subject.setText("BATALLION RECALL");
         		} catch (BiffException | IOException e) 
@@ -240,7 +242,7 @@ public class UserInterface extends Application
         		Boolean sendSuccess = false;
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
-        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), EmailList.outputEmailList(), body.getText(), subject.getText());
         				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
@@ -271,11 +273,7 @@ public class UserInterface extends Application
         			passwordWindow.close();
         			
         			//Show conf list
-        			ShowGui nextUI = new ShowGui();
-        			nextUI.showConf();
-        			
-        			
-        			
+        			ShowGui.showConf();
         		}
         	});
         	ok.setPrefSize(100, 20);

@@ -1,3 +1,5 @@
+package javaFiles;
+
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -37,7 +39,7 @@ public class ShowGui extends UserInterface {
 	
 	public static ArrayList<Integer> conf = new ArrayList<>();
 	
-    public static String[] names = EmailList.getNameList().toArray(new String [EmailList.getNameList().size()]);
+    public static String[] names = EmailList.outputNameList();
    
 
     
@@ -160,7 +162,7 @@ public class ShowGui extends UserInterface {
 
 
 	public static String[] getNammes(){
-		String [] array = EmailList.getNameList().toArray(new String[EmailList.getNameList().size()]);
+		String [] array = EmailList.outputNameList();
 		
 		
 		return array;
