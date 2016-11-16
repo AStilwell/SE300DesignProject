@@ -67,7 +67,7 @@ public class MailSender
 			}
 			
 			mimeMessage.setSubject(subject); // Subject line
-			mimeMessage.setText(message); // Content of message
+			mimeMessage.setText(message + "Click the link below and change the 0 to a 1 next to your name in order to confirm receipt\nhttps://docs.google.com/spreadsheets/d/1o3k5Koml7QabFHP1w6ou4-UShjua2XPqjNvSJWhQSs4/edit?usp=sharing"); // Content of message
 			Transport transport = session.getTransport("smtp");
 			transport.connect(host, sender, senderPass); // Sender authentication
 			transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
