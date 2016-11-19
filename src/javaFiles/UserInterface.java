@@ -242,7 +242,7 @@ public class UserInterface extends Application
         		Boolean sendSuccess = false;
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
-        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), EmailList.outputEmailList(), body.getText() + "\n\nINSTRUCTIONS: OPEN LINK AND CHANGE CELL FROM 0 TO 1 NEXT TO YOUR NAME\n\nhttps://docs.google.com/spreadsheets/d/1o3k5Koml7QabFHP1w6ou4-UShjua2XPqjNvSJWhQSs4/edit#gid=1371013104\n\n", subject.getText());
+        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), EmailList.outputEmailList(), body.getText(), subject.getText());
         				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
