@@ -1,5 +1,6 @@
 package javaFiles;
 
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -25,13 +26,17 @@ import javax.mail.MessagingException;
 public class UserInterface extends Application 
 {
 
+	public static Stage uiOverhaul;
     
     /* (non-Javadoc)
      * @see javafx.application.Application#start(javafx.stage.Stage)
      */
     @Override
-    public void start(Stage uiOverhaul) 
+    public void start(Stage primaryStage) 
     {
+    	//the stage
+    	 uiOverhaul = new Stage();
+    	 
         //Create new email list
         EmailList email = new EmailList();
 
@@ -149,7 +154,7 @@ public class UserInterface extends Application
         tabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         tabs.getTabs().addAll(unitStaff, bnStaff, weaponsT, engineeringT, navigationT, mopltT);
         tabs.setOnMouseClicked(g -> {
-        	addresses.setText(Arrays.toString(email.outputEmailList()));
+        	addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         	if(email.isEmpty()){
         		addresses.setText(null);
         	}
@@ -177,7 +182,7 @@ public class UserInterface extends Application
         		try {
                 email.getAllEmails();
                 diagram.selectAll();
-        		addresses.setText(Arrays.toString(email.outputEmailList()));
+        		addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         		body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
         		subject.setText("BATALLION RECALL");
         		} catch (BiffException | IOException e) 
@@ -237,7 +242,7 @@ public class UserInterface extends Application
         		Boolean sendSuccess = false;
         		try {
         			//for (int i = 0; i < 100; i++){ //Seriously...don't activate this...
-        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), email.outputEmailList(), body.getText(), subject.getText());
+        				MailSender.sendEmail(usrEmail.getText(), password.getCharacters().toString(), EmailList.outputEmailList(), body.getText(), subject.getText());
         				sendSuccess = true;
         			//}
         		} catch(MessagingException me) {
@@ -266,14 +271,9 @@ public class UserInterface extends Application
         		}
         		if (sendSuccess){
         			passwordWindow.close();
-        			uiOverhaul.close();
-        			ShowGui nextUI = new ShowGui();
         			
-        			try {
-						nextUI.start();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+        			//Show conf list
+        			ShowGui.showConf();
         		}
         	});
         	ok.setPrefSize(100, 20);

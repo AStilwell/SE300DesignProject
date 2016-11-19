@@ -1,4 +1,6 @@
 package javaFiles;
+
+
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -25,6 +27,7 @@ public class EmailList
         return emailList;
     }
 
+    //Changed getNameList() to static
     public ArrayList<String> getNameList()
     {
         return nameList;
@@ -34,14 +37,14 @@ public class EmailList
      *
      * @return Outputs the email list in a string format
      */
-    public String[] outputEmailList() 
+    public static String[] outputEmailList() 
     {
         String[] addresses = emailList.toArray(new String[0]);
         
         return addresses;
     }
 
-    public String[] outputNameList()
+    public static String[] outputNameList()
     {
     	String[] names = nameList.toArray(new String[0]);
     	
@@ -99,7 +102,7 @@ public class EmailList
     public void getAllEmails() throws IOException, BiffException 
     {	
     	emailList.clear();
-    	File file = new File(".\\src\\refDocs\\Test Spreadsheet.xls");
+    	File file = new File("./src/refDocs/Test Spreadsheet.xls");
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
