@@ -48,7 +48,7 @@ public class EmailList
     public static String[] outputNameList()
     {
     	String[] names = nameList.toArray(new String[0]);
-    	
+
         return names;
     }
 
@@ -103,7 +103,7 @@ public class EmailList
     public void getAllEmails() throws IOException, BiffException 
     {	
     	emailList.clear();
-    	File file = new File("./src/refDocs/Test Spreadsheet.xls"); //FIXME
+    	File file = new File("./src/javaFiles/Test Spreadsheet.xls"); //FIXME
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
