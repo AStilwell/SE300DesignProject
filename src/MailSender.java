@@ -1,5 +1,3 @@
-package javaFiles;
-
 
 import java.util.Properties;
 import javax.mail.*;

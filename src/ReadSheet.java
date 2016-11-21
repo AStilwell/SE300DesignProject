@@ -1,5 +1,3 @@
-package javaFiles;
-
 
 
 
@@ -79,7 +77,7 @@ public class ReadSheet extends ShowGui implements Runnable  {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            ShowGui.class.getResourceAsStream("./src/javaFiles/client_secret.json");
+            ShowGui.class.getResourceAsStream("/client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -119,7 +117,7 @@ public class ReadSheet extends ShowGui implements Runnable  {
 		
 		do{
 			try{
-				System.out.println("Marker");
+				
 				
 				// Build a new authorized API client service.
 		        Sheets service = getSheetsService();

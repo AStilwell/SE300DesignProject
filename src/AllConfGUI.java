@@ -1,5 +1,3 @@
-package javaFiles;
-
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
