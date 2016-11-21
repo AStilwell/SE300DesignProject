@@ -1,4 +1,6 @@
-package javaFiles;
+package toBeTested;
+
+
 
 
 import javafx.stage.*;
