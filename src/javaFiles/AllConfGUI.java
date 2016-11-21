@@ -1,4 +1,4 @@
-package toBeTested;
+package javaFiles;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
