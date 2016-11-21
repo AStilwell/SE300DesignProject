@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseButton;
@@ -10,10 +14,6 @@ import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Andrew Stilwell on 24-Oct-16.
