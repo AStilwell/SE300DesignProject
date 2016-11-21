@@ -95,7 +95,8 @@ public class EmailList
         
         for (int i = 0; i < sheet.getRows(); i++) 
         {
-        	
+        	Cell cell = sheet.getCell(3, i);
+        	pos.put(cell.getContents(), i);
         }
 		return pos;
     	
