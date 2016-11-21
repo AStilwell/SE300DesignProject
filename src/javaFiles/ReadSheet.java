@@ -1,4 +1,6 @@
-package javaFiles;
+package toBeTested;
+
+
 
 
 import java.util.List;
@@ -23,6 +25,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.google.api.services.sheets.v4.model.ValueRange;
+
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 
 public class ReadSheet extends ShowGui implements Runnable  {
 	
@@ -72,7 +79,7 @@ public class ReadSheet extends ShowGui implements Runnable  {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            ShowGui.class.getResourceAsStream("/client_secret.json");
+            ShowGui.class.getResourceAsStream("./client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -101,11 +108,18 @@ public class ReadSheet extends ShowGui implements Runnable  {
                 .build();
     }
     
+   
+    //check if everyone has confirmed
+  	boolean allConfirmed = false;
+   	int hasConfirmed = 1;
+  
+  	
 	@Override
 	public void run() {
 		
-		while(true){
+		do{
 			try{
+				
 				
 				// Build a new authorized API client service.
 		        Sheets service = getSheetsService();
@@ -152,9 +166,11 @@ public class ReadSheet extends ShowGui implements Runnable  {
 		          }
 		          
 		          
-		     
+		          
+			      System.out.println(confirmation());
+			     
 	          Thread.sleep(3000);
-	         
+	          
 	          
 	         
 		          
@@ -162,11 +178,36 @@ public class ReadSheet extends ShowGui implements Runnable  {
 			}catch(Exception e){
 				
 			}
-		}
+			
+		}while(!confirmation());
 		
+		 System.out.println("Everyone has confirmed!!");
+		 AllConfGUI show = new AllConfGUI();
+		 Platform.runLater(new Runnable(){
+
+			@Override
+			public void run() {
+				show.showAllConf();
+			}
+			 
+		 });
+		 
 		 
 		
 	}
 	
+	
+	public boolean confirmation(){
+		
+		
+		for (int i = 0; i < conf.size(); i++) {
+			
+			if(!conf.get(i).equals(hasConfirmed)){
+				return false;
+			}
+			
+		}
+		 return true;
+	}
 
 }
