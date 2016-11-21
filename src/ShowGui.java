@@ -96,7 +96,6 @@ public class ShowGui extends UserInterface {
 			NamesLayout.getChildren().add(label);
 		}
 
-
 		
 		//Confirmation
 		for(int value : conf){

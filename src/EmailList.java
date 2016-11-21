@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -81,6 +83,22 @@ public class EmailList
     	} else {
     		input.add(name);
     	}
+    }
+    
+    public Map<String, Integer> getNamePos() throws BiffException, IOException{
+    	Map<String, Integer> pos = new HashMap<String, Integer>();
+    	
+    	File file = new File("./src/Test Spreadsheet.xls");
+    	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
+        Workbook workbook = Workbook.getWorkbook(file);
+        Sheet sheet = workbook.getSheet(0);
+        
+        for (int i = 0; i < sheet.getRows(); i++) 
+        {
+        	
+        }
+		return pos;
+    	
     }
 
     public void delName(ArrayList<String> input, String name) 
