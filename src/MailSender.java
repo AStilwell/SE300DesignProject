@@ -1,4 +1,3 @@
-
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.Message.RecipientType;
