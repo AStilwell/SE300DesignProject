@@ -88,7 +88,7 @@ public class EmailList
     public Map<String, Integer> getNamePos() throws BiffException, IOException{
     	Map<String, Integer> pos = new HashMap<String, Integer>();
     	
-    	File file = new File("./src/Test Spreadsheet.xls");
+    	File file = new File("./src/Test Spreadsheet.xls");//FIXME
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);
