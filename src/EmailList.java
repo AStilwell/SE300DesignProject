@@ -57,7 +57,7 @@ public class EmailList
      */
     public void addEmail(ArrayList<String> input, String email) 
     {
-    	if(emailList.contains(email)){
+    	if(input.contains(email)){
     		//Do nothing
     	} else {
         input.add(email);
@@ -70,7 +70,7 @@ public class EmailList
      */
     public void delEmail(ArrayList<String> input, String email) 
     {
-    	if(emailList.contains(email)){
+    	if(input.contains(email)){
     		input.remove(email);
     	} else {
     		//Do nothing
@@ -79,21 +79,27 @@ public class EmailList
 
     public void addName(ArrayList<String> input, String name) 
     {
+    	System.out.println("Entering Function");
     	ArrayList<String> temp = new ArrayList<String>();
     	
-    	if(nameList.contains(name)){
+    	if(input.contains(name)){
     		//do nothing
+    		System.out.println("Doing Nothing");
     	} else {
     		for(int k = 0; k < input.size(); k++){
     			if(posList.get((input.get(k))) > posList.get(name)){
     				for(int i = k; i < input.size(); i++){
-    					
     					temp.add(input.get(i));
     					input.remove(i);
+    					System.out.println("Partitioning");
     				}
     				input.add(name);
     				input.addAll(temp);
+    				System.out.println("Adding");
+    			} else {
+    				System.out.println("Skipping");
     			}
+    			System.out.print(input.get(k));
     		}
     	}
     }
@@ -111,19 +117,20 @@ public class EmailList
 	        for (int i = 0; i < sheet.getRows(); i++) 
 	        {
 	        	Cell cell = sheet.getCell(3, i);
-	        	pos.put(cell.getContents(), i);
+	        	pos.put(cell.getContents(), i+1);
 	        }
 			
 		} catch (BiffException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.print(pos.toString());
 		return pos;
     }
 
     public void delName(ArrayList<String> input, String name) 
     {
-    	if(nameList.contains(name)){
+    	if(input.contains(name)){
     		input.remove(name);
     	} else {
     		
