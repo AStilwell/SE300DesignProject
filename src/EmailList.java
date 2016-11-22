@@ -93,15 +93,15 @@ public class EmailList
     					input.remove(i);
     					System.out.println("Partitioning");
     				}
-    				input.add(name);
-    				input.addAll(temp);
     				System.out.println("Adding");
     			} else {
     				System.out.println("Skipping");
     			}
-    			System.out.print(input.get(k));
     		}
+    		input.add(name);
+			input.addAll(temp);
     	}
+    	System.out.print(input + "\n");
     }
     
     public static Map<String, Integer> getNamePos(){
@@ -124,7 +124,6 @@ public class EmailList
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.print(pos.toString());
 		return pos;
     }
 
