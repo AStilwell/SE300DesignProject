@@ -87,19 +87,20 @@ public class EmailList
     		System.out.println("Doing Nothing");
     	} else {
     		for(int k = 0; k < input.size(); k++){
+    			
     			if(posList.get((input.get(k))) > posList.get(name)){
-    				for(int i = k; i < input.size(); i++){
-    					temp.add(input.get(i));
-    					input.remove(i);
-    					System.out.println("Partitioning");
+    				while(k != input.size()){
+    					temp.add(input.get(k));
+    					input.remove(k);
     				}
-    				System.out.println("Adding");
+    				System.out.println("Partitioning\n" + input + "\n" + temp);
     			} else {
     				System.out.println("Skipping");
     			}
     		}
     		input.add(name);
 			input.addAll(temp);
+			System.out.println("Adding");
     	}
     	System.out.print(input + "\n");
     }
@@ -129,11 +130,8 @@ public class EmailList
 
     public void delName(ArrayList<String> input, String name) 
     {
-    	if(input.contains(name)){
     		input.remove(name);
-    	} else {
-    		
-    	}
+    		System.out.println("Removed" + input);
     }
 
     /**
