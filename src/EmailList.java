@@ -16,7 +16,8 @@ public class EmailList
 {
     private static ArrayList<String> emailList = new ArrayList<>();
     private static ArrayList<String> nameList = new ArrayList<>();
-
+    private static Map<String, Integer> posList = getNamePos();
+    
     /**
      *
      * @return Outputs the email list contained in this class
@@ -78,28 +79,46 @@ public class EmailList
 
     public void addName(ArrayList<String> input, String name) 
     {
+    	ArrayList<String> temp = new ArrayList<String>();
+    	
     	if(nameList.contains(name)){
-    		
+    		//do nothing
     	} else {
-    		input.add(name);
+    		for(int k = 0; k < input.size(); k++){
+    			if(posList.get((input.get(k))) > posList.get(name)){
+    				for(int i = k; i < input.size(); i++){
+    					
+    					temp.add(input.get(i));
+    					input.remove(i);
+    				}
+    				input.add(name);
+    				input.addAll(temp);
+    			}
+    		}
     	}
     }
     
-    public Map<String, Integer> getNamePos() throws BiffException, IOException{
+    public static Map<String, Integer> getNamePos(){
     	Map<String, Integer> pos = new HashMap<String, Integer>();
     	
     	File file = new File("./src/Test Spreadsheet.xls");//FIXME
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
-        Workbook workbook = Workbook.getWorkbook(file);
-        Sheet sheet = workbook.getSheet(0);
-        
-        for (int i = 0; i < sheet.getRows(); i++) 
-        {
-        	Cell cell = sheet.getCell(3, i);
-        	pos.put(cell.getContents(), i);
-        }
+        Workbook workbook;
+		try {
+			workbook = Workbook.getWorkbook(file);
+			Sheet sheet = workbook.getSheet(0);
+	        
+	        for (int i = 0; i < sheet.getRows(); i++) 
+	        {
+	        	Cell cell = sheet.getCell(3, i);
+	        	pos.put(cell.getContents(), i);
+	        }
+			
+		} catch (BiffException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return pos;
-    	
     }
 
     public void delName(ArrayList<String> input, String name) 
@@ -112,7 +131,7 @@ public class EmailList
     }
 
     /**
-     * @throws IOException
+     * @throws IOExceptiono
      * @throws BiffException
      */
     public void getAllEmails() throws IOException, BiffException 
