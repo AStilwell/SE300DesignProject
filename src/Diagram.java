@@ -21,7 +21,7 @@ import jxl.read.biff.BiffException;
 public class Diagram
 {
 
-	private static final String filePath = "src/Test Spreadsheet.xls"; //FIXME
+	private static final String filePath = "./src/Test Spreadsheet.xls"; //FIXME
 	//private URL jarPath = getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls");
 	
 	ArrayList<VBox> storage = new ArrayList<>();
