@@ -108,7 +108,7 @@ public class EmailList
     public static Map<String, Integer> getNamePos(){
     	Map<String, Integer> pos = new HashMap<String, Integer>();
     	
-    	File file = new File("./src/Test Spreadsheet.xls");//FIXME
+    	File file = new File("src/Test Spreadsheet.xls");//FIXME
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook;
 		try {
@@ -141,7 +141,7 @@ public class EmailList
     public void getAllEmails() throws IOException, BiffException 
     {	
     	emailList.clear();
-    	File file = new File("./src/Test Spreadsheet.xls");
+    	File file = new File("src/Test Spreadsheet.xls");
     	//File file = new File(getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls").getFile()); //TODO
         Workbook workbook = Workbook.getWorkbook(file);
         Sheet sheet = workbook.getSheet(0);

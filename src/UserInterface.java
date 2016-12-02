@@ -51,10 +51,10 @@ public class UserInterface extends Application
         try 
         {
             diagram.read();
-        } catch (IOException io) 
+        } catch (java.io.FileNotFoundException fnf) 
         {
             System.out.println("Error File Not Found");
-        } catch (BiffException be){
+        } catch (BiffException | IOException fault){
         	System.out.println("Something went wrong...");
         }
 
