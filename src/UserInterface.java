@@ -51,9 +51,11 @@ public class UserInterface extends Application
         try 
         {
             diagram.read();
-        } catch (IOException | BiffException ex) 
+        } catch (IOException io) 
         {
-            ex.printStackTrace();
+            System.out.println("Error File Not Found");
+        } catch (BiffException be){
+        	System.out.println("Something went wrong...");
         }
 
         ArrayList<VBox> chart = diagram.getDiagram();
@@ -198,12 +200,12 @@ public class UserInterface extends Application
         		recallCheck.close();
         	});
         	confirm.setPrefSize(100, 20);
-        	confirm.setStyle("-fx-background-color: green; -fx-font-weight: bold");
+        	//confirm.setStyle("-fx-font-weight: bold");
         	
         	Button accident = new Button("Cancel");
         	accident.setOnMouseClicked(e -> recallCheck.close());
         	accident.setPrefSize(100,  20);
-        	accident.setStyle("-fx-background-color: red; -fx-font-weight: bold");
+        	//accident.setStyle("-fx-font-weight: bold");
         	
         	HBox options = new HBox(confirm, accident);
         	options.setSpacing(10);
