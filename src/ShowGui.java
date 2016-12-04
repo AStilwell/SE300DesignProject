@@ -102,8 +102,11 @@ public class ShowGui extends UserInterface {
 			if (value ==0){
 				Label label = new Label("has not confirmed");
 				ConformationLayout.getChildren().add(label);
-			}else{
+			}else if (value == 1){
 				Label label = new Label("has confirmed");
+				ConformationLayout.getChildren().add(label);
+			} else {
+				Label label = new Label("invalid input");
 				ConformationLayout.getChildren().add(label);
 			}
 		}
@@ -118,11 +121,16 @@ public class ShowGui extends UserInterface {
 				c1.setRadius(10);
 				c1.setFill(Color.RED);
 				ConfCircles.getChildren().add(c1);
-			}else{
+			}else if (value == 1){
 				
 				Circle c1 = new Circle();
 				c1.setRadius(10);
 				c1.setFill(Color.GREEN);
+				ConfCircles.getChildren().add(c1);
+			} else {
+				Circle c1 = new Circle();
+				c1.setRadius(10);
+				c1.setFill(Color.YELLOW);
 				ConfCircles.getChildren().add(c1);
 			}
 		}
