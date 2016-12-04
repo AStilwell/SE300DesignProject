@@ -1,3 +1,4 @@
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -67,8 +68,8 @@ public class ReadSheet extends ShowGui implements Runnable  {
      */
     public static Credential authorize() throws IOException {
         // Load client secrets.
-        InputStream in =
-            ShowGui.class.getResourceAsStream("client_secret.json");
+        InputStream in = new FileInputStream("client_secret.json");
+            //ShowGui.class.getResourceAsStream("client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
