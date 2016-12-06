@@ -42,6 +42,15 @@ public class UserInterface extends Application
     {
     	//the stage
     	 uiOverhaul = new Stage();
+    	 
+ 		uiOverhaul.setOnCloseRequest(e -> {
+			e.consume();
+			closeProgram();
+			
+
+		});
+        //Create new email list
+        EmailList email = new EmailList();
 
         //Create new diagram handling class
         Diagram diagram = new Diagram();
@@ -60,8 +69,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.BNSTAFF.size(); i++){
         			diagram.BNSTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.BNSTAFFemails.get(i));
-        			EmailList.addName(diagram.BNSTAFFnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.BNSTAFFemails.get(i));
+        			email.addName(email.getNameList(), diagram.BNSTAFFnames.get(i));
         		}
         	}
         });
@@ -70,8 +79,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.WEPS.size(); i++){
         			diagram.WEPS.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.WEPSemails.get(i));
-        			EmailList.addName(diagram.WEPSnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.WEPSemails.get(i));
+        			email.addName(email.getNameList(), diagram.WEPSnames.get(i));
         		}
         	}
         });
@@ -80,8 +89,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.ENG.size(); i++){
         			diagram.ENG.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.ENGemails.get(i));
-        			EmailList.addName(diagram.ENGnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.ENGemails.get(i));
+        			email.addName(email.getNameList(), diagram.ENGnames.get(i));
         		}
         	}
         });
@@ -90,8 +99,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.NAV.size(); i++){
         			diagram.NAV.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.NAVemails.get(i));
-        			EmailList.addName(diagram.NAVnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.NAVemails.get(i));
+        			email.addName(email.getNameList(), diagram.NAVnames.get(i));
         		}
         	}
         });
@@ -100,8 +109,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.MOPLT.size(); i++){
         			diagram.MOPLT.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.MOPLTemails.get(i));
-        			EmailList.addName(diagram.MOPLTnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.MOPLTemails.get(i));
+        			email.addName(email.getNameList(), diagram.MOPLTnames.get(i));
         		}
         	}
         });
@@ -110,8 +119,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.USTAFF.size(); i++){
         			diagram.USTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			EmailList.addEmail(diagram.USTAFFemails.get(i));
-        			EmailList.addName(diagram.USTAFFnames.get(i));
+        			email.addEmail(email.getEmailList(), diagram.USTAFFemails.get(i));
+        			email.addName(email.getNameList(), diagram.USTAFFnames.get(i));
         		}
         	}
         });
@@ -135,7 +144,7 @@ public class UserInterface extends Application
         
         MenuItem clear = new MenuItem("Clear All");
         clear.setOnAction(v -> {
-        	EmailList.clearList();
+        	email.clearList();
         	diagram.clearSelection();
         	addresses.setText(null);
         	subject.setText(null);
@@ -160,7 +169,7 @@ public class UserInterface extends Application
         tabs.getTabs().addAll(unitStaff, bnStaff, weaponsT, engineeringT, navigationT, mopltT);
         tabs.setOnMouseClicked(g -> {
         	addresses.setText(Arrays.toString(EmailList.outputEmailList()));
-        	if(EmailList.isEmpty()){
+        	if(email.isEmpty()){
         		addresses.setText(null);
         	}
         });
@@ -185,7 +194,7 @@ public class UserInterface extends Application
         	Button confirm = new Button("Confirm");
         	confirm.setOnMouseClicked(x -> {
         		try {
-                EmailList.getAllEmails();
+                email.getAllEmails();
                 diagram.selectAll();
         		addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         		body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
@@ -339,7 +348,17 @@ public class UserInterface extends Application
         uiOverhaul.show();
     }
     
-    /**
+	//This method will quit the program properly
+	public static void closeProgram(){
+		Boolean answer = ConfirmBox.display("Confirm Exit", "Sure you wnat to exit?");
+		if (answer){
+			uiOverhaul.close();
+			System.out.println("Exit the program!");
+			System.exit(0);
+		}
+	}
+
+	/**
      * Method needed for IDEs with limited JavaFX8 compatibility.
      * 
      * @param args Arguments to be passed to the Application.launch() method

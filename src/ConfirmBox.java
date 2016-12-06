@@ -6,10 +6,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * @author Abdullah Alosaimi
+ * @version 1.0
+ * this class has a method shows a confirmation box
+ * when the user click on X button.
+ */
+
 public class ConfirmBox {
 
     //Create variable
-    static boolean answer;
+    static boolean answer = false;
 
     public static boolean display(String title, String message) {
         Stage window = new Stage();
