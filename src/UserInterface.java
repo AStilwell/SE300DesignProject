@@ -63,8 +63,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.BNSTAFF.size(); i++){
         			diagram.BNSTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.BNSTAFFemails.get(i));
-        			email.addName(email.getNameList(), diagram.BNSTAFFnames.get(i));
+        			EmailList.addEmail(diagram.BNSTAFFemails.get(i));
+        			EmailList.addName(diagram.BNSTAFFnames.get(i));
         		}
         	}
         });
@@ -73,8 +73,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.WEPS.size(); i++){
         			diagram.WEPS.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.WEPSemails.get(i));
-        			email.addName(email.getNameList(), diagram.WEPSnames.get(i));
+        			EmailList.addEmail(diagram.WEPSemails.get(i));
+        			EmailList.addName(diagram.WEPSnames.get(i));
         		}
         	}
         });
@@ -83,8 +83,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.ENG.size(); i++){
         			diagram.ENG.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.ENGemails.get(i));
-        			email.addName(email.getNameList(), diagram.ENGnames.get(i));
+        			EmailList.addEmail(diagram.ENGemails.get(i));
+        			EmailList.addName(diagram.ENGnames.get(i));
         		}
         	}
         });
@@ -93,8 +93,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.NAV.size(); i++){
         			diagram.NAV.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.NAVemails.get(i));
-        			email.addName(email.getNameList(), diagram.NAVnames.get(i));
+        			EmailList.addEmail(diagram.NAVemails.get(i));
+        			EmailList.addName(diagram.NAVnames.get(i));
         		}
         	}
         });
@@ -103,8 +103,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.MOPLT.size(); i++){
         			diagram.MOPLT.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.MOPLTemails.get(i));
-        			email.addName(email.getNameList(), diagram.MOPLTnames.get(i));
+        			EmailList.addEmail(diagram.MOPLTemails.get(i));
+        			EmailList.addName(diagram.MOPLTnames.get(i));
         		}
         	}
         });
@@ -113,8 +113,8 @@ public class UserInterface extends Application
         	if(fn.getClickCount() == 3){
         		for(int i = 0; i < diagram.USTAFF.size(); i++){
         			diagram.USTAFF.get(i).setStyle("-fx-background-color: yellow; -fx-border-color: black");
-        			email.addEmail(email.getEmailList(), diagram.USTAFFemails.get(i));
-        			email.addName(email.getNameList(), diagram.USTAFFnames.get(i));
+        			EmailList.addEmail(diagram.USTAFFemails.get(i));
+        			EmailList.addName(diagram.USTAFFnames.get(i));
         		}
         	}
         });

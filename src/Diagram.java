@@ -493,14 +493,14 @@ public class Diagram
 				if (button == MouseButton.PRIMARY)
 				{
 					node.setStyle("-fx-background-color: yellow; -fx-border-color: black");
-					EmailList.addEmail(EmailList.getEmailList(), e);
-					EmailList.addName(EmailList.getNameList(), n);
+					EmailList.addEmail(e);
+					EmailList.addName(n);
 					
 				} else if (button == MouseButton.SECONDARY)
 				{
 					node.setStyle("-fx-background-color: transparent; -fx-border-color: black");
-					EmailList.delEmail(EmailList.getEmailList(), e);
-					EmailList.delName(EmailList.getEmailList(), n);
+					EmailList.delEmail(e);
+					EmailList.delName(n);
 				}
 			}
 		});
