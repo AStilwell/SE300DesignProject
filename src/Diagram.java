@@ -21,7 +21,7 @@ import jxl.read.biff.BiffException;
 public class Diagram
 {
 
-	private static final String filePath = "Test Spreadsheet.xls"; //FIXME
+	private static final String filePath = "src/Test Spreadsheet.xls"; //FIXME
 	//private URL jarPath = getClass().getClassLoader().getResource(".\\refDocs\\Test Spreadsheet.xls");
 	
 	ArrayList<VBox> storage = new ArrayList<>();
@@ -484,7 +484,7 @@ public class Diagram
 		
 		node.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
-			//EmailList temp = new EmailList();
+			EmailList temp = new EmailList();
 
 			@Override
 			public void handle(MouseEvent event)
@@ -493,14 +493,14 @@ public class Diagram
 				if (button == MouseButton.PRIMARY)
 				{
 					node.setStyle("-fx-background-color: yellow; -fx-border-color: black");
-					EmailList.addEmail(e);
-					EmailList.addName(n);
+					temp.addEmail(temp.getEmailList(), e);
+					temp.addName(temp.getNameList(), n);
 					
 				} else if (button == MouseButton.SECONDARY)
 				{
 					node.setStyle("-fx-background-color: transparent; -fx-border-color: black");
-					EmailList.delEmail(e);
-					EmailList.delName(n);
+					temp.delEmail(temp.getEmailList(), e);
+					temp.delName(temp.getEmailList(), n);
 				}
 			}
 		});

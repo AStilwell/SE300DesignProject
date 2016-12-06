@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
-
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -21,13 +20,21 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 
 import javafx.application.Platform;
 
+/**
+ * @author Abdullah Alosaimi
+ * @version 1.0
+ * This class reads a google sheet content (confirmation column)
+ * and compares that to a confirm value (1), then it returns the status
+ *  of each receivers.
+ *
+ */
 public class ReadSheet extends ShowGui implements Runnable  {
 	
 	
 
 	/** Application name. */
     private static final String APPLICATION_NAME =
-        "Google Sheets API Java Quickstart";
+        "SE300Project";
 
     /** Directory to store user credentials for this application. */
     private static final java.io.File DATA_STORE_DIR = new java.io.File(
@@ -68,7 +75,7 @@ public class ReadSheet extends ShowGui implements Runnable  {
      */
     public static Credential authorize() throws IOException {
         // Load client secrets.
-        InputStream in = new FileInputStream("client_secret.json");
+        InputStream in = ShowGui.class.getResourceAsStream("/client_secret.json");
             //ShowGui.class.getResourceAsStream("client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
@@ -119,8 +126,7 @@ public class ReadSheet extends ShowGui implements Runnable  {
 				
 				
 
-		        // Prints the names and majors of students in a sample spreadsheet:
-		        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+		        
 		        String spreadsheetId = "1o3k5Koml7QabFHP1w6ou4-UShjua2XPqjNvSJWhQSs4";
 		        String range = "Sheet1!A:B";
 		        
@@ -128,6 +134,9 @@ public class ReadSheet extends ShowGui implements Runnable  {
 		        ValueRange response = service.spreadsheets().values()
 		            .get(spreadsheetId, range)
 		            .execute();
+		        
+		     
+		        
 		        List<List<Object>> values = response.getValues();
 		        
 		        System.out.printf("MIDN\t\t\tconformation\n");
