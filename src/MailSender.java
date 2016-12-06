@@ -31,13 +31,10 @@ public class MailSender
 	 * @param subject - string - subject line of email
 	 * @return will give true on success, false on failure
 	 * 
-	 * TODO find out why the method is slow
 	 */
 	public static void sendEmail(String sender, String senderPass, String to[], String message, String subject) throws MessagingException
 	{
-		String host = "smtp.gmail.com"; // This may need to change depending 
-										// on where we send the email from, 
-										// I'm not 100% sure how significant it is.
+		String host = "smtp.gmail.com";
 
 		Properties properties = System.getProperties();
 		
@@ -77,7 +74,7 @@ public class MailSender
 		//}
 		//catch(MessagingException me)
 		//{
-			//me.printStackTrace(); // This should never happen.
+			//me.printStackTrace(); // This should happen if the user enters invalid credentials.
 		//}
 		
 		//return false; // Returns false if for any reason the code above doesn't run.
