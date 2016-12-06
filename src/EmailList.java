@@ -138,7 +138,7 @@ public class EmailList
      * @throws IOExceptiono
      * @throws BiffException
      */
-    public void getAllEmails() throws IOException, BiffException 
+    public static void getAllEmails() throws IOException, BiffException 
     {	
     	emailList.clear();
     	File file = new File("Test Spreadsheet.xls");
@@ -157,14 +157,14 @@ public class EmailList
         }
     }
     
-    public Boolean isEmpty() {
+    public static Boolean isEmpty() {
     	if (emailList.isEmpty()){
     		return true;
     	}
     	return false;
     }
     
-    public void clearList(){
+    public static void clearList(){
     	emailList.clear();
     }
 }

@@ -42,9 +42,6 @@ public class UserInterface extends Application
     {
     	//the stage
     	 uiOverhaul = new Stage();
-    	 
-        //Create new email list
-        EmailList email = new EmailList();
 
         //Create new diagram handling class
         Diagram diagram = new Diagram();
@@ -138,7 +135,7 @@ public class UserInterface extends Application
         
         MenuItem clear = new MenuItem("Clear All");
         clear.setOnAction(v -> {
-        	email.clearList();
+        	EmailList.clearList();
         	diagram.clearSelection();
         	addresses.setText(null);
         	subject.setText(null);
@@ -163,7 +160,7 @@ public class UserInterface extends Application
         tabs.getTabs().addAll(unitStaff, bnStaff, weaponsT, engineeringT, navigationT, mopltT);
         tabs.setOnMouseClicked(g -> {
         	addresses.setText(Arrays.toString(EmailList.outputEmailList()));
-        	if(email.isEmpty()){
+        	if(EmailList.isEmpty()){
         		addresses.setText(null);
         	}
         });
@@ -188,7 +185,7 @@ public class UserInterface extends Application
         	Button confirm = new Button("Confirm");
         	confirm.setOnMouseClicked(x -> {
         		try {
-                email.getAllEmails();
+                EmailList.getAllEmails();
                 diagram.selectAll();
         		addresses.setText(Arrays.toString(EmailList.outputEmailList()));
         		body.setText("This is a RECALL, all-hands must respond to this email by clicking the given link.");
