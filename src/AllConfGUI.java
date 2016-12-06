@@ -11,7 +11,7 @@ public class AllConfGUI extends UserInterface{
 		 StackPane pane1 = new StackPane();
 		 Scene Conscene = new Scene (pane1, 400, 100);
 		 Text tx = new Text();
-		 tx.setText("Everyone has confirmed!!\n You can close this window");
+		 tx.setText("Everyone has confirmed!!\n You can close this window now.");
 		 pane1.getChildren().add(tx);
 		 uiOverhaul.hide();
 		 uiOverhaul.setScene(Conscene);

@@ -5,7 +5,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -25,6 +28,9 @@ public class ShowGui extends UserInterface {
 
     //Pane
     static BorderPane  borderPane = new BorderPane();
+    static FlowPane flow = new FlowPane();
+    static VBox alt = new VBox();
+    static ScrollPane scroll = new ScrollPane();
     
 	//Layouts
     static VBox NamesLayout = new VBox(10);
@@ -73,10 +79,23 @@ public class ShowGui extends UserInterface {
 		bottomButtons.setAlignment(Pos.CENTER);
 		
 	    
-		borderPane.setLeft(NamesLayout);
-		borderPane.setCenter(ConformationLayout);
-		borderPane.setRight(ConfCircles);
+		//borderPane.setLeft(NamesLayout);
+		//borderPane.setCenter(ConformationLayout);
+		//borderPane.setRight(ConfCircles);
 		borderPane.setBottom(bottomButtons);
+		borderPane.setCenter(scroll);
+		
+		NamesLayout.setAlignment(Pos.TOP_LEFT);
+		ConformationLayout.setAlignment(Pos.TOP_CENTER);
+		ConfCircles.setAlignment(Pos.TOP_RIGHT);
+		
+		flow.getChildren().addAll(NamesLayout, ConformationLayout, ConfCircles);
+		flow.setAlignment(Pos.TOP_CENTER);
+		flow.setHgap(20);
+		scroll.setContent(flow);
+		scroll.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+		//alt.getChildren().addAll(flow, bottomButtons);
 		
 		bottomButtons.getChildren().add(refreshButton);
 		
@@ -156,7 +175,7 @@ public class ShowGui extends UserInterface {
 	
 	//Changed to static
 	private static void closeProgram(){
-		Boolean answer = ConfirmBox.display("Title", "Sure u wnat to exit?");
+		Boolean answer = ConfirmBox.display("Confirmation Progress", "Are you sure you want to exit?");
 		if (answer){
 			uiOverhaul.close();
 		}
