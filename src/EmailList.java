@@ -14,21 +14,21 @@ import jxl.read.biff.BiffException;
  */
 public class EmailList 
 {
-    private static ArrayList<String> emailList = new ArrayList<>();
-    private static ArrayList<String> nameList = new ArrayList<>();
-    private static Map<String, Integer> posList = getNamePos();
+    protected static ArrayList<String> emailList = new ArrayList<>();
+    protected static ArrayList<String> nameList = new ArrayList<>();
+    protected static Map<String, Integer> posList = getNamePos();
     
     /**
      *
      * @return Outputs the email list contained in this class
      */
-    public ArrayList<String> getEmailList() 
+    public static ArrayList<String> getEmailList() 
     {
         return emailList;
     }
 
     //Changed getNameList() to static
-    public ArrayList<String> getNameList()
+    public static ArrayList<String> getNameList()
     {
         return nameList;
     }
@@ -55,7 +55,7 @@ public class EmailList
      * @param input The initial array list that is being modified.
      * @param email The email to be added to the array list.
      */
-    public void addEmail(ArrayList<String> input, String email) 
+    public static void addEmail(ArrayList<String> input, String email) 
     {
     	if(input.contains(email)){
     		//Do nothing
@@ -68,7 +68,7 @@ public class EmailList
      * @param input The initial array list that is being modified.
      * @param email The email to be removed from the array list.
      */
-    public void delEmail(ArrayList<String> input, String email) 
+    public static void delEmail(ArrayList<String> input, String email) 
     {
     	if(input.contains(email)){
     		input.remove(email);
@@ -77,14 +77,14 @@ public class EmailList
     	}
     }
 
-    public void addName(ArrayList<String> input, String name) 
+    public static void addName(ArrayList<String> input, String name) 
     {
-    	System.out.println("Entering Function");
+    	//System.out.println("Entering Function");
     	ArrayList<String> temp = new ArrayList<String>();
     	
     	if(input.contains(name)){
     		//do nothing
-    		System.out.println("Doing Nothing");
+    		//System.out.println("Doing Nothing");
     	} else {
     		for(int k = 0; k < input.size(); k++){
     			
@@ -93,16 +93,16 @@ public class EmailList
     					temp.add(input.get(k));
     					input.remove(k);
     				}
-    				System.out.println("Partitioning\n" + input + "\n" + temp);
+    				//System.out.println("Partitioning\n" + input + "\n" + temp);
     			} else {
-    				System.out.println("Skipping");
+    				//System.out.println("Skipping");
     			}
     		}
     		input.add(name);
 			input.addAll(temp);
-			System.out.println("Adding");
+			//System.out.println("Adding");
     	}
-    	System.out.print(input + "\n");
+    	//System.out.print(input + "\n");
     }
     
     public static Map<String, Integer> getNamePos(){
@@ -128,10 +128,10 @@ public class EmailList
 		return pos;
     }
 
-    public void delName(ArrayList<String> input, String name) 
+    public static void delName(ArrayList<String> input, String name) 
     {
     		input.remove(name);
-    		System.out.println("Removed" + input);
+    		System.out.println(nameList);
     }
 
     /**

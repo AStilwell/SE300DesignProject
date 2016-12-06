@@ -484,7 +484,7 @@ public class Diagram
 		
 		node.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
-			EmailList temp = new EmailList();
+			//EmailList temp = new EmailList();
 
 			@Override
 			public void handle(MouseEvent event)
@@ -493,14 +493,14 @@ public class Diagram
 				if (button == MouseButton.PRIMARY)
 				{
 					node.setStyle("-fx-background-color: yellow; -fx-border-color: black");
-					temp.addEmail(temp.getEmailList(), e);
-					temp.addName(temp.getNameList(), n);
+					EmailList.addEmail(EmailList.getEmailList(), e);
+					EmailList.addName(EmailList.getNameList(), n);
 					
 				} else if (button == MouseButton.SECONDARY)
 				{
 					node.setStyle("-fx-background-color: transparent; -fx-border-color: black");
-					temp.delEmail(temp.getEmailList(), e);
-					temp.delName(temp.getEmailList(), n);
+					EmailList.delEmail(EmailList.getEmailList(), e);
+					EmailList.delName(EmailList.getEmailList(), n);
 				}
 			}
 		});
